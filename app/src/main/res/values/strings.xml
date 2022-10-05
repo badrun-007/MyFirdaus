@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">My 259 Firdaus</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="akun">Akun</string>
+    <string name="al_qur_an">Al-Qur\'an</string>
+    <string name="news">News</string>
+    <string name="let_s_started">Let\'s Started</string>
+    <string name="teks">Alhamdullillah kini Pondok Pesantren Persatuan Islam 259 Firdaus Pangalengan dapat menghadirkan aplikasi khusus untuk para Santri, OrangTua, Alumni dan Asatidz yang insyalloh akan terus berkembang menuju pesantren modern agar pesantren kami ini tidak tertinggal oleh pesatnya perkembangan teknologi yang mana aplikasi ini bertujuan untuk mempermudah asatidz dan para santri dalam melaksanakan sistem pembelajaran demi mewujudkan Madrasah yang unggul dalam penyesuasian zaman , penyesuaian komunikasi verbal arab dan inggris mohon doa dan dukungannya agar aplikasi ini dapat terus berkembang \n\n Jazakumullohu khairan katsiron</string>
+</resources>
