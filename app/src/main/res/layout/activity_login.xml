@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/kop">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="48dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <ImageView
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="13dp"
+                    android:layout_width="77dp"
+                    android:layout_height="77dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ppi259" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_login_welcome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ahlan wa sahlan"
+                    android:layout_marginTop="20dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/Green"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/poppinsextra"/>
+
+                <LinearLayout
+                    android:layout_below="@+id/tv_login_welcome"
+                    android:id="@+id/ema"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/username"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:hintEnabled="false">
+                        <EditText
+                            android:background="@drawable/bg_edit_text"
+                            android:id="@+id/et_email_log"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/white"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contaier_pass"
+                    android:layout_below="@+id/ema"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/password"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true"
+                        app:hintEnabled="false"
+                        app:boxBackgroundMode="none">
+
+                        <EditText
+                            android:textColor="@color/white"
+                            android:background="@drawable/bg_edit_text"
+                            android:id="@+id/et_pass_log"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:selectAllOnFocus="true"
+                            android:autofillHints="sas" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_lupakatasandi"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/contaier_pass"
+                    android:text="@string/lupa_kata_sandi"
+                    android:textColor="@color/Green"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"/>
+
+                <LinearLayout
+                    android:id="@+id/contaier_drop"
+                    android:layout_below="@+id/tv_lupakatasandi"
+                    android:paddingRight="55dp"
+                    android:paddingLeft="55dp"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                </LinearLayout>
+
+                <Button
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/Green"
+                    android:id="@+id/btn_masuk_login"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/contaier_drop"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/masuk"
+                    android:layout_centerHorizontal="true"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/poppinsregular"/>
+
+                <LinearLayout
+                    android:id="@+id/field_regis"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/btn_masuk_login"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsregular"
+                        android:textSize="12sp"
+                        android:text="@string/belum_mempunyai_akun"/>
+
+                    <Button
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/Green_muda"
+                        android:id="@+id/btn_regis"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Buat Akun"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/poppinsregular"/>
+
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/pb"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminateDrawable="@drawable/c_prog_bar"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

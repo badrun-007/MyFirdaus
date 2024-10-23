@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ScanTestActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/barlayTest"
+        android:layout_width="match_parent"
+        android:elevation="0dp"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarTesting"
+            android:layout_width="match_parent"
+            android:background="@color/Green"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Penilaian Calon Santri"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+            <ImageView
+                android:id="@+id/imgSantri"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/formulir"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:paddingStart="10dp">
+
+                <TextView
+                    android:id="@+id/namaSantri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama : "
+                    android:fontFamily="@font/poppinsregular"
+                    android:textColor="@color/Green"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ttlSantri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="TTL :" />
+
+                <TextView
+                    android:id="@+id/genderSantri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Gender Santri :" />
+
+                <TextView
+                    android:id="@+id/alamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="4"
+                    android:lines="4"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Alamat :" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/news"
+            android:layout_marginHorizontal="9dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kemampuan Calon Santri"
+            android:fontFamily="@font/poppinsextra"
+            android:layout_marginBottom="1dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/Green"/>
+
+        <View
+            android:layout_below="@+id/news"
+            android:id="@+id/garis"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="9dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/Green"
+            android:layout_height="5dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/field_baca_alquran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/garis"
+            android:hint="Baca Al-Quran">
+            <EditText
+                android:id="@+id/baca_alquran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/Green"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/field_nulis_alquran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/field_baca_alquran"
+            android:hint="Nulis Al-Quran">
+            <EditText
+                android:id="@+id/nulis_alquran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/Green"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/field_pengetahuan_umum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/field_nulis_alquran"
+            android:hint="Pengetahuan Umum">
+            <EditText
+                android:id="@+id/pengetahuan_umum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/Green"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/field_hafalan_quran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/field_pengetahuan_umum"
+            android:hint="Hafalan Al-Quran">
+            <EditText
+                android:id="@+id/hafalan_quran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/Green"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/ga"
+            android:layout_below="@+id/field_hafalan_quran"
+            android:layout_marginHorizontal="9dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minat Dan Bakat Calon Santri"
+            android:fontFamily="@font/poppinsextra"
+            android:layout_marginBottom="1dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/Green"/>
+
+        <View
+            android:layout_below="@+id/ga"
+            android:id="@+id/garisdua"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="9dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/Green"
+            android:layout_height="5dp"/>
+
+        <LinearLayout
+            android:layout_below="@+id/garisdua"
+            android:id="@+id/field_ekstrakurikuler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            app:boxStrokeColor="@color/Orange"
+            android:orientation="vertical"
+            android:hint="Provinsi">
+
+            <Spinner
+                android:id="@+id/spinner_ekstrakurikuler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/Orange"
+                android:completionThreshold="1"
+                android:focusable="true"
+                android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                android:backgroundTint="@color/Green"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginBottom="9dp"
+                android:background="#797979"
+                android:layout_height="1dp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/kirimporto"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/field_ekstrakurikuler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kirim"/>
+
+    </RelativeLayout>
+</LinearLayout>

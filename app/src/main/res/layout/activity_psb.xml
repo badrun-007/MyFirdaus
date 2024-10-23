@@ -1,0 +1,1524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainPsb"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".activity.PsbActivity"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/barlay"
+        android:layout_width="match_parent"
+        android:elevation="0dp"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarFormulir"
+            android:layout_width="match_parent"
+            android:background="@color/Green"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Formulir Pendaftaran"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="9dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--layout Biodata Santri-->
+            <LinearLayout
+                android:id="@+id/layout_biodata_santri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/news"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Biodata Santri"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Green"/>
+
+                <View
+                    android:layout_below="@+id/news"
+                    android:id="@+id/garis"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/Green"
+                    android:layout_height="5dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/field_nama_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/garis"
+                    android:hint="Nama Asli">
+                    <EditText
+                        android:id="@+id/nama_santri_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz., "
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/field_NIK_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="16"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="NIK"
+                    android:layout_below="@+id/field_nama_formulir">
+                    <EditText
+                        android:id="@+id/nik_santri_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/field_nisn_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="10"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="NISN"
+                    android:layout_below="@+id/field_NIK_formulir">
+                    <EditText
+                        android:id="@+id/nisn_santri_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_ttgl"
+                    android:layout_below="@+id/field_nisn_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/field_tmpt_lahir_formulir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/Orange"
+                        android:hint="Tempat Lahir">
+
+                        <EditText
+                            android:id="@+id/tmpt_lahir_santri_formulir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textColor="@color/Green"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/field_tgl_lahir_formulir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/Orange"
+                        android:hint="Tanggal Lahir">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tgl_lahir_santri_formulir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textColor="@color/Green"
+                            android:focusable="false"
+                            android:drawableEnd="@drawable/baseline_add_card_24"
+                            android:onClick="showDatePickerDialog" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_anakke"
+                    android:layout_below="@+id/container_ttgl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/field_anak_ke_formulir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/Orange"
+                        android:hint="Anak Ke">
+
+                        <EditText
+                            android:id="@+id/anak_ke_formulir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textColor="@color/Green"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_gravity="bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dari"
+                        android:textSize="17sp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="5dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/field_saudara_formulir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/Orange"
+                        android:hint="Saudara">
+
+                        <EditText
+                            android:id="@+id/saudara_formulir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textColor="@color/Green"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/container_anakke"
+                    android:id="@+id/field_gender_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="Jenis Kelamin">
+
+                    <RadioGroup
+                        android:id="@+id/genderSantri"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_laki_laki"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Laki-Laki"
+                            android:layout_marginEnd="20dp"
+                            android:textColor="@color/Green"
+                            android:fontFamily="@font/poppinsmedium"/>
+
+                        <RadioButton
+                            android:id="@+id/radio_perempuan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Perempuan"
+                            android:textColor="@color/Green"
+                            android:fontFamily="@font/poppinsmedium"/>
+                    </RadioGroup>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/field_gender_formulir"
+                    android:id="@+id/field_alamat_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="Alamat"
+                    app:helperText="Contoh: Jl. Mawar No 01 RT 02 RW 01">
+
+                    <EditText
+                        android:id="@+id/alamat_santri_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz., 0123456789"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_below="@+id/field_alamat_formulir"
+                    android:id="@+id/field_provinsi_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:orientation="vertical"
+                    android:hint="Provinsi">
+
+                    <Spinner
+                        android:id="@+id/spinner_provinsi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_below="@+id/field_provinsi_formulir"
+                    android:id="@+id/field_kabupaten_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_kabupaten"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_below="@+id/field_kabupaten_formulir"
+                    android:id="@+id/field_kecamatan_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_kecamatan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_below="@+id/field_kecamatan_formulir"
+                    android:id="@+id/field_desa_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_desa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/field_sekolah_asal_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/Orange"
+                    android:layout_below="@+id/field_desa_formulir"
+                    android:hint="Sekolah Asal">
+                    <EditText
+                        android:id="@+id/sekolah_asal_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/field_alamat_sekolah_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/Orange"
+                    android:layout_below="@+id/field_sekolah_asal_formulir"
+                    android:hint="Alamat Sekolah Asal"
+                    app:helperText="Contoh: Jl. Mawar No 01 Desa Melati Kecamatan Harum">
+                    <EditText
+                        android:id="@+id/alamat_sekolah_asal_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/garis_empat"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/field_foto">
+
+                    <TextView
+                        android:layout_marginEnd="20dp"
+                        android:textColor="@color/Green"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Foto Santri (Latar Biru)"
+                        android:fontFamily="@font/poppinsmedium"/>
+
+                    <Button
+                        android:backgroundTint="@color/Green"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:id="@+id/button_choose_foto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/baseline_add_to_photos_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/Orange"
+                        android:text="Pilih Foto Santri" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--layout Prestasi Santri-->
+            <LinearLayout
+                android:id="@+id/layout_prestasi_santri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prestasi Santri"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Green"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/Green"
+                    android:layout_height="5dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:text="Jika tidak ada prestasi,kosongkan saja \nInsya Allah, kita ciptakan prestasi bersama! "
+                    android:textColor="@color/Orange"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/jenis_prestasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/field_jenis_prestasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Prestasi"
+                    app:helperText="Contoh: Badminton">
+                    <EditText
+                        android:id="@+id/prestasi_santri_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz., "
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Penyelenggara Kegiatan"
+                    app:helperText="Contoh: PD Persis Kabupaten Bandung">
+                    <EditText
+                        android:id="@+id/penyelenggara_prestasi_santri"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_tingkat_prestasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_juara_prestasi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="Tanggal Kegiatan">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tgl_prestasi_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"
+                        android:focusable="false"
+                        android:drawableEnd="@drawable/baseline_add_card_24"
+                        android:onClick="showDatePickerDialog" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/garis_empat"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_marginEnd="20dp"
+                        android:textColor="@color/Green"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sertifikat Prestasi"
+                        android:fontFamily="@font/poppinsmedium"/>
+
+                    <Button
+                        android:backgroundTint="@color/Green"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:id="@+id/button_choose_prestasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/baseline_add_to_photos_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/Orange"
+                        android:text="Pilih File Sertifikat" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--layout Biodata Ayah-->
+            <LinearLayout
+                android:id="@+id/layout_biodata_ayah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:layout_below="@+id/field_alamat_sekolah_formulir"
+                    android:id="@+id/ortuView"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Biodata Ayah Kandung"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Green"/>
+
+                <View
+                    android:layout_below="@+id/ortuView"
+                    android:id="@+id/garis_dua"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/Green"
+                    android:layout_height="5dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/field_nama_ayah_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/garis_dua"
+                    android:hint="Nama Asli">
+                    <EditText
+                        android:id="@+id/nama_ayah_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz., "
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/field_NIK_ayah_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="16"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="NIK"
+                    android:layout_below="@+id/field_nama_ayah_formulir">
+                    <EditText
+                        android:id="@+id/nik_ayah_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_ttgl_ayah"
+                    android:layout_below="@+id/field_NIK_ayah_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/Orange"
+                        android:hint="Tempat Lahir">
+
+                        <EditText
+                            android:id="@+id/tmpt_lahir_ayah_formulir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz., "
+                            android:textColor="@color/Green"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/Orange"
+                        android:hint="Tanggal Lahir">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tgl_lahir_ayah_formulir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textColor="@color/Green"
+                            android:focusable="false"
+                            android:drawableEnd="@drawable/baseline_add_card_24"
+                            android:onClick="showDatePickerDialog" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/field_no_ayah_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/Orange"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="13"
+                    android:hint="Nomor HP/WA"
+                    app:helperText="Contoh: 081234567890"
+                    android:layout_below="@+id/container_ttgl_ayah">
+                    <EditText
+                        android:id="@+id/no_ayah_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/field_no_ayah_formulir"
+                    android:id="@+id/field_pendidikan_ayah_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="Pendidikan Terakhir">
+
+                    <Spinner
+                        android:id="@+id/spinner_pendidikan_ayah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/field_pendidikan_ayah_formulir"
+                    android:id="@+id/field_pekerjaan_ayah_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="Pekerjaan">
+
+                    <Spinner
+                        android:id="@+id/spinner_pekerjaan_ayah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/field_penghasilan_ayah_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="Penghasilan"
+                    app:prefixText="RP. "
+                    app:suffixText=" /bulan"
+                    android:layout_below="@+id/field_pekerjaan_ayah_formulir">
+                    <EditText
+                        android:id="@+id/penghasilan_ayah_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/checkbox_alamat_sama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/field_penghasilan_ayah_formulir"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="Alamat sama dengan santri"
+                    android:textColor="@color/Green"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/field_alamat_ayah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/checkbox_alamat_sama"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Alamat"
+                    app:helperText="Contoh: Jl. Mawar No 01 RT 02 RW 01"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <EditText
+                        android:id="@+id/alamat_ayah_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_below="@+id/field_alamat_ayah"
+                    android:id="@+id/field_provinsi_formulir_ayah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:orientation="vertical"
+                    android:hint="Provinsi">
+
+                    <Spinner
+                        android:id="@+id/spinner_provinsi_ayah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_below="@+id/field_provinsi_formulir_ayah"
+                    android:id="@+id/field_kabupaten_formulir_ayah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_kabupaten_ayah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_below="@+id/field_kabupaten_formulir_ayah"
+                    android:id="@+id/field_kecamatan_formulir_ayah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_kecamatan_ayah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_below="@+id/field_kecamatan_formulir_ayah"
+                    android:id="@+id/field_desa_formulir_ayah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_desa_ayah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--layout Biodata Ibu-->
+            <LinearLayout
+                android:id="@+id/layout_biodata_ibu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_below="@+id/field_desa_formulir_ayah"
+                    android:id="@+id/ortuViewIbu"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Biodata Ibu Kandung"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Green"/>
+                <View
+                    android:layout_below="@+id/ortuViewIbu"
+                    android:id="@+id/garis_tiga"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/Green"
+                    android:layout_height="5dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/field_nama_ibu_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/garis_tiga"
+                    android:hint="Nama Asli">
+                    <EditText
+                        android:id="@+id/nama_ibu_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz., "
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/field_NIK_ibu_formulir"
+                    android:layout_width="match_parent"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="16"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="NIK"
+                    android:layout_below="@+id/field_nama_ibu_formulir">
+                    <EditText
+                        android:id="@+id/nik_ibu_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/container_ttgl_ibu"
+                    android:layout_below="@+id/field_NIK_ibu_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/Orange"
+                        android:hint="Tempat Lahir">
+
+                        <EditText
+                            android:id="@+id/tmpt_lahir_ibu_formulir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz., "
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textColor="@color/Green"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
+                        app:boxStrokeColor="@color/Orange"
+                        android:hint="Tanggal Lahir">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tgl_lahir_ibu_formulir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textColor="@color/Green"
+                            android:focusable="false"
+                            android:drawableEnd="@drawable/baseline_add_card_24"
+                            android:onClick="showDatePickerDialog" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/field_no_ibu_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/Orange"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="13"
+                    android:hint="Nomor HP/WA"
+                    app:helperText="Contoh: 081234567890"
+                    android:layout_below="@+id/container_ttgl_ibu">
+                    <EditText
+                        android:id="@+id/no_ibu_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/field_no_ibu_formulir"
+                    android:id="@+id/field_pendidikan_ibu_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="Pendidikan Terakhir">
+
+                    <Spinner
+                        android:id="@+id/spinner_pendidikan_ibu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/field_pendidikan_ibu_formulir"
+                    android:id="@+id/field_pekerjaan_ibu_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="Pekerjaan">
+
+                    <Spinner
+                        android:id="@+id/spinner_pekerjaan_ibu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/field_penghasilan_ibu_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="Penghasilan"
+                    app:prefixText="RP. "
+                    app:suffixText=" /bulan"
+                    android:layout_below="@+id/field_pekerjaan_ibu_formulir">
+                    <EditText
+                        android:id="@+id/penghasilan_ibu_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/checkbox_alamat_sama_ibu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/field_penghasilan_ibu_formulir"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="Alamat sama dengan santri"
+                    android:textColor="@color/Green"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/field_alamat_ibu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/checkbox_alamat_sama_ibu"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Alamat"
+                    app:helperText="Contoh: Jl. Mawar No 01 RT 02 RW 01"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <EditText
+                        android:id="@+id/alamat_ibu_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_below="@+id/field_alamat_ibu"
+                    android:id="@+id/field_provinsi_formulir_ibu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:orientation="vertical"
+                    android:hint="Provinsi">
+
+                    <Spinner
+                        android:id="@+id/spinner_provinsi_ibu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_below="@+id/field_provinsi_formulir_ibu"
+                    android:id="@+id/field_kabupaten_formulir_ibu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_kabupaten_ibu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_below="@+id/field_kabupaten_formulir_ibu"
+                    android:id="@+id/field_kecamatan_formulir_ibu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_kecamatan_ibu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_below="@+id/field_kecamatan_formulir_ibu"
+                    android:id="@+id/field_desa_formulir_ibu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange">
+
+                    <Spinner
+                        android:id="@+id/spinner_desa_ibu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--container button next-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:padding="16dp">
+
+                <Button
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/Green"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:id="@+id/button_kirim"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/Orange"
+                    android:text="Kirim Data"
+                    android:visibility="gone"/>
+
+                <Button
+                    android:id="@+id/button_previous"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Previous"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/button_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

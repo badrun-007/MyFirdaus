@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.My259Firdaus" parent="Base.Theme.My259Firdaus">
+
+    </style>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.My259Firdaus" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/Green</item>
+        <item name="colorPrimaryVariant">@color/Green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/Orange</item>
+        <item name="colorSecondaryVariant">@color/Orange</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/Green</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

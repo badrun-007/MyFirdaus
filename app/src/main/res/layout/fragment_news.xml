@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.NewsFragment">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/pb_asd"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminateDrawable="@drawable/c_prog_bar"/>
+
+            <RelativeLayout
+                android:layout_marginTop="9dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/news"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/info_pesantren"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Green"/>
+
+                <TextView
+                    android:id="@+id/selengkapnyainfo"
+                    android:layout_marginEnd="27dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/selengkapnya"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#358FFD"/>
+
+                <View
+                    android:layout_below="@+id/news"
+                    android:id="@+id/garis"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/Green"
+                    android:layout_height="5dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_news_infopesantren"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/garis" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/news1"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/artikel"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Green"/>
+
+                <TextView
+                    android:id="@+id/selengkapnyaartikel"
+                    android:layout_marginEnd="27dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/selengkapnya"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#358FFD"/>
+
+                <View
+                    android:layout_below="@+id/news1"
+                    android:id="@+id/garis1"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/Green"
+                    android:layout_height="5dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_news_artikel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/garis1" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/news2"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lainnya"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Green"/>
+
+                <TextView
+                    android:id="@+id/selengkapnyalainnya"
+                    android:layout_marginEnd="27dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/selengkapnya"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="#358FFD"/>
+
+                <View
+                    android:layout_below="@+id/news2"
+                    android:id="@+id/garis2"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/Green"
+                    android:layout_height="5dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_news_infolainnya"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/garis2" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

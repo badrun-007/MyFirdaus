@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.PinjamBukuActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/barlay"
+        android:layout_width="match_parent"
+        android:elevation="0dp"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarFormulir"
+            android:layout_width="match_parent"
+            android:background="@color/Green"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Formulir Peminjaman Buku"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/field_nama_formulir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:hint="Nama Peminjam">
+
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/nama_anggota_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/Green"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/field_nama_formulir"
+                android:id="@+id/field_judul_buku"
+                android:hint="Judul Buku">
+
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/judul_buku_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/Green"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/field_judul_buku"
+                android:id="@+id/field_penulis_buku"
+                android:hint="Penulis Buku">
+
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/penulis_buku_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/Green"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/field_penulis_buku"
+                android:id="@+id/field_isbn_buku"
+                android:hint="ISBN Buku">
+
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/isbn_buku_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/Green"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/field_isbn_buku"
+                android:id="@+id/field_kode_buku"
+                android:hint="Kode Buku">
+
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/kode_buku_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/Green"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="1"
+                android:layout_below="@+id/field_kode_buku"
+                android:id="@+id/field_waktu_peminjaman"
+                app:suffixText="Hari"
+                android:hint="Waktu Peminjaman Buku">
+
+                <EditText
+                    android:id="@+id/peminjaman_buku_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/Green"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_pinjam_buku"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_below="@+id/field_waktu_peminjaman"
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/Green"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:text="Ajukan Peminjaman Buku"/>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

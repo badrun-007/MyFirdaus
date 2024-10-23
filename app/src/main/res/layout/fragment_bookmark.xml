@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/drawer_layoutdua"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".fragment.BookmarkFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/search_bar"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Search books"
+                android:drawableTint="@color/Grey"
+                android:drawableEnd="@drawable/baseline_content_paste_search_24"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:textAllCaps="false"
+                    android:id="@+id/filter_buttondua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Filter"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/Green"
+                    android:drawableTint="@color/Gading"
+                    android:drawableLeft="@drawable/baseline_filter_alt_24"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/garis"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="9dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@color/Green"
+            android:layout_height="2dp"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:paddingBottom="20dp"
+                android:id="@+id/recycler_bookmark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/card_buku"/>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/filter_drawerdua"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:padding="20dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/tv_penulis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Penulis"
+            android:textColor="@color/Green"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Spinner
+            android:layout_below="@id/tv_penulis"
+            android:id="@+id/penulis_Spinnerdua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_below="@id/penulis_Spinnerdua"
+            android:id="@+id/tv_kategori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kategori Buku"
+            android:textColor="@color/Green"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Spinner
+            android:layout_below="@id/tv_kategori"
+            android:id="@+id/kategori_Spinnerdua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_penerbit"
+            android:layout_below="@id/kategori_Spinnerdua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Penerbit Buku"
+            android:textColor="@color/Green"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Spinner
+            android:layout_below="@id/tv_penerbit"
+            android:id="@+id/penerbit_Spinnerdua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_below="@+id/penerbit_Spinnerdua"
+            android:id="@+id/tv_tahunterbit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tahun Terbit Buku"
+            android:textColor="@color/Green"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Spinner
+            android:layout_below="@+id/tv_tahunterbit"
+            android:id="@+id/tahunterbit_Spinnerdua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_below="@+id/tahunterbit_Spinnerdua"
+            android:id="@+id/tv_jenisBuku"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Buku"
+            android:textColor="@color/Green"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Spinner
+            android:layout_below="@+id/tv_jenisBuku"
+            android:id="@+id/jenis_Spinnerdua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_alignParentBottom="true"
+            android:id="@+id/filterdua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filter"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/Green"/>
+
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

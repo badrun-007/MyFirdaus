@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DaftarUlangActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/barlay"
+        android:layout_width="match_parent"
+        android:elevation="0dp"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarFormulir"
+            android:layout_width="match_parent"
+            android:background="@color/Green"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginHorizontal="9dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pendaftaran Ulang"
+                    android:fontFamily="@font/poppinsextra"
+                    android:layout_marginBottom="1dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_kk">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Kartu Keluarga"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_kk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File Kartu Keluarga" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_akte">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Akte Kelahiran"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_akte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File Akte Kelahiran" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_ijazah">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Ijazah Terakhir /\nSurat Kelulusan"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_ijazah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File Ijazah Terakhir" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_kip">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. KIP (Jika Ada)"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_kip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File Kartu Indonesia Pintar" />
+    </LinearLayout>
+
+
+    <Button
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/Green"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:id="@+id/button_kirim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/Orange"
+        android:text="Daftar Ulang" />
+
+</LinearLayout>

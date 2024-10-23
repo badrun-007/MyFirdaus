@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Orange">#FC7A1C</color>
+    <color name="Gading">#F3FF90</color>
+    <color name="Green">#083F28</color>
+    <color name="Green_muda">#059212</color>
+    <color name="kuning">#FFD951</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Grey">#666565</color>
+    <color name="colorPrimaryVariant">#083F28</color>
+    <color name="colorPrimary">#083F28</color>
+
+    <color name="active_button_color">#059212</color>
+    <color name="inactive_button_color">#D3D3D3</color>
+    <color name="active_text_color">#FFFFFF</color>
+    <color name="inactive_text_color">#000000</color>
+
+    <color name="date_true">#2c2e31</color>
+    <color name="date_false">#c6c9cf</color>
+    <color name="date_falses">#1de9b6</color>
+    <color name="dot">#1de9b6</color>
+</resources>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/AppTheme"
+    android:windowFullscreen="true"
+    tools:context=".activity.NewsDetailActivity">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_i"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="1"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_ii"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_iii"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.34"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_iiii"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.106"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.81"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_b3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_c3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_c2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.16"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_c1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.04"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_d1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.24"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_e1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45"/>
+
+
+    <ImageView
+        android:id="@+id/gambarNews"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/alt"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="@id/gl_iiii"
+        app:layout_constraintBottom_toBottomOf="@id/gl_iii"
+        app:layout_constraintEnd_toEndOf="@+id/gl_i"
+        app:layout_constraintStart_toStartOf="@+id/gl_ii"
+        android:contentDescription="@string/photo_news_firdaus" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ppi259"
+        android:alpha="0.7"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@id/gl_c1"
+        app:layout_constraintBottom_toBottomOf="@id/gl_b1"
+        app:layout_constraintEnd_toEndOf="@+id/gl_b3"
+        app:layout_constraintStart_toStartOf="@+id/gl_b2"
+        android:contentDescription="@string/photo_news_firdaus" />
+
+    <View
+        android:alpha="0.35"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/back_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/gl_c1"
+        app:layout_constraintBottom_toBottomOf="@id/gl_b1"
+        app:layout_constraintEnd_toEndOf="@+id/gl_c2"
+        app:layout_constraintStart_toStartOf="@+id/gl_c3"/>
+
+    <ImageView
+        android:id="@+id/img_backNews"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="18dp"
+        android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@id/gl_c1"
+        app:layout_constraintBottom_toBottomOf="@id/gl_b1"
+        app:layout_constraintEnd_toEndOf="@+id/gl_c2"
+        app:layout_constraintStart_toStartOf="@+id/gl_c3"
+        android:contentDescription="@string/photo_news_firdaus" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/kop_news"
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintTop_toBottomOf="@id/gl_d1"
+        app:layout_constraintEnd_toEndOf="@+id/gl_i"
+        app:layout_constraintStart_toStartOf="@+id/gl_ii"
+        android:contentDescription="@string/photo_news_firdaus" />
+
+    <TextView
+        android:id="@+id/tv_news_waktu"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="8dp"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textAlignment="textEnd"
+        android:textSize="12sp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsregular"
+        android:textColor="@color/Green"
+        app:layout_constraintTop_toBottomOf="@id/gl_iii"
+        app:layout_constraintEnd_toEndOf="@+id/gl_i"/>
+
+    <TextView
+        android:id="@+id/tv_news_judul"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="-20dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="200dp"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:lines="3"
+        android:fontFamily="@font/poppinsmedium"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/gl_iii"
+        app:layout_constraintStart_toStartOf="@id/gl_ii"/>
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/gl_e1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tv_news_deskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:textColor="@color/black"/>
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,255 @@
+<resources>
+    <string name="app_name">My 259 Firdaus</string>
+    <string name="default_web_client_id">422223009282-2o7lahdj0ve9mas0h3oi56t4esvfvdif.apps.googleusercontent.com</string>
+    <string name="title_activity_coba">CobaActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="teks">Alhamdullillah kini Pondok Pesantren Persatuan Islam 259 Firdaus Pangalengan dapat menghadirkan aplikasi khusus untuk para Santri, OrangTua, Alumni dan Asatidz yang insyalloh akan terus berkembang menuju pesantren modern. Agar pesantren kami ini tidak tertinggal oleh pesatnya perkembangan teknologi yang mana aplikasi ini bertujuan untuk mempermudah asatidz dan para santri dalam melaksanakan sistem pembelajaran demi mewujudkan Madrasah yang unggul dalam penyesuasian zaman. </string>
+    <string name="tglH">Selasa, 03 Safar 1444H</string>
+    <string name="ahlan">Ahlan Wasahlan \ndi aplikasi pesantren \npersis no 259 firdaus</string>
+    <string name="shubuh">Shubuh</string>
+    <string name="dzuhur">Dzuhur</string>
+    <string name="ashar">Ashar</string>
+    <string name="maghrib">Maghrib</string>
+    <string name="isya">Isya</string>
+    <string name="info_pesantren">Info Pesantren</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="lupa_kata_sandi">Lupa kata sandi ?</string>
+    <string name="user">User</string>
+    <string name="masuk">Masuk</string>
+    <string name="belum_mempunyai_akun">Belum mempunyai akun ?</string>
+    <string name="buat_akun">Buat Akun</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="email">Email</string>
+    <string name="daftar">Daftar</string>
+    <string name="alumni">Alumni</string>
+    <string name="pilih_salah_satu">Pilih salah satu :</string>
+    <string name="tamu">Tamu</string>
+    <string name="angkatan">Angkatan</string>
+    <string name="akun">Akun</string>
+    <string name="al_qur_an">Al-Qur\'an</string>
+    <string name="news">News</string>
+    <string name="let_s_started">Let\'s Started</string>
+    <string name="photo_news_firdaus">Photo News Firdaus</string>
+    <string name="walashr">”Demi waktu, sungguh, manusia berada dalam kerugian.”</string>
+    <string name="selengkapnya">Selengkapnya</string>
+    <string name="artikel">Artikel</string>
+    <string name="lainnya">Lainnya</string>
+    <string name="bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="channel_name">PPI 259 Firdaus</string>
+    <string name="channel_description">Notifikasi</string>
+    <string-array name="pendidikan">
+        <item>TIDAK / BELUM SEKOLAH</item>
+        <item>BELUM TAMAT SD/SEDERAJAT</item>
+        <item>TAMAT SD / SEDERAJAT</item>
+        <item>SLTP/SEDERAJAT</item>
+        <item>SLTA / SEDERAJAT</item>
+        <item>DIPLOMA I / II</item>
+        <item>DIPLOMA III</item>
+        <item>DIPLOMA IV/ STRATA I</item>
+        <item>STRATA II</item>
+        <item>STRATA III</item>
+    </string-array>
+    <string-array name="tingkat_prestasi">
+        <item>Internasional</item>
+        <item>Nasional</item>
+        <item>Provinsi</item>
+        <item>Kabupaten</item>
+        <item>Kecamatan</item>
+        <item>Desa</item>
+        <item>Sekolah</item>
+    </string-array>
+    <string-array name="juara_prestasi">
+        <item>Juara 1</item>
+        <item>Juara 2</item>
+        <item>Juara 3</item>
+        <item>Juara Harapan 1</item>
+        <item>Juara Harapan 2</item>
+        <item>Juara Harapan 3</item>
+    </string-array>
+
+    <string-array name="jenis_prestasi">
+        <item>Olahraga</item>
+        <item>Akademik</item>
+        <item>TIK</item>
+        <item>Kesenian</item>
+        <item>Jurnalistik</item>
+        <item>Tahfidz</item>
+        <item>Kepemimpinan/Organisasi</item>
+    </string-array>
+
+    <string-array name="ekstrakurikuler">
+        <item>EKSTRAKURIKULER</item>
+        <item>Syufu</item>
+        <item>Pramuka</item>
+        <item>Futsal</item>
+        <item>Komputer</item>
+        <item>RG-UG / Organisasi</item>
+    </string-array>
+    <string-array name="pekerjaan">
+        <item>Akuntan</item>
+        <item>Anggota BPK</item>
+        <item>Anggota DPR-RI</item>
+        <item>Anggota DPRD Kabupaten</item>
+        <item>Anggota DPRD Provinsi</item>
+        <item>Anggota DPD</item>
+        <item>Anggota Kabinet / Kementerian</item>
+        <item>Anggota Lembaga Tinggi</item>
+        <item>Anggota Mahkamah Konstitusi</item>
+        <item>Apoteker</item>
+        <item>Arsitek</item>
+        <item>Artis</item>
+        <item>Asisten Ahli</item>
+        <item>Atlit</item>
+        <item>Bapak Rumah Tangga</item>
+        <item>Biarawati</item>
+        <item>Bidan</item>
+        <item>Belum / Tidak Bekerja</item>
+        <item>Bupati</item>
+        <item>Buruh Harian Lepas</item>
+        <item>Buruh Nelayan / Perikanan</item>
+        <item>Buruh Peternakan</item>
+        <item>Buruh Tani / Perkebunan</item>
+        <item>Chef</item>
+        <item>Dosen</item>
+        <item>Dokter</item>
+        <item>Duta Besar</item>
+        <item>Gubernur</item>
+        <item>Guru</item>
+        <item>Imam Masjid</item>
+        <item>Industri</item>
+        <item>Juru Masak</item>
+        <item>Karyawan BUMD</item>
+        <item>Karyawan BUMN</item>
+        <item>Karyawan Honorer</item>
+        <item>Karyawan Swasta</item>
+        <item>Kepala Desa</item>
+        <item>Kepolisian RI</item>
+        <item>Kepolisian</item>
+        <item>Konsultan</item>
+        <item>Konstruksi</item>
+        <item>Manajer</item>
+        <item>Mekanik</item>
+        <item>Mengurus Rumah Tangga</item>
+        <item>Nelayan / Perikanan</item>
+        <item>Notaris</item>
+        <item>Operator</item>
+        <item>Paraji</item>
+        <item>Paranormal</item>
+        <item>Pastur</item>
+        <item>Pegawai Negeri Sipil</item>
+        <item>Pekerja Pengolahan, Kerajinan</item>
+        <item>Pelajar / Mahasiswa</item>
+        <item>Pelaut</item>
+        <item>Pembantu Rumah Tangga</item>
+        <item>Penata Busana</item>
+        <item>Penata Rambut</item>
+        <item>Penata Rias</item>
+        <item>Peneliti</item>
+        <item>Penerjemah</item>
+        <item>Pengacara</item>
+        <item>Penyiar Radio</item>
+        <item>Penyiar Televisi</item>
+        <item>Penata Busana</item>
+        <item>Peneliti</item>
+        <item>Pensiunan</item>
+        <item>Perangkat Desa</item>
+        <item>Perancang Busana</item>
+        <item>Perawat</item>
+        <item>Perdagangan</item>
+        <item>Petani / Pekebun</item>
+        <item>Peternak</item>
+        <item>Perangkat Desa</item>
+        <item>Perawat</item>
+        <item>Peternak</item>
+        <item>Pilot</item>
+        <item>Psikiater / Psikolog</item>
+        <item>Promotor Acara</item>
+        <item>Seniman</item>
+        <item>Sopir</item>
+        <item>Tabib</item>
+        <item>Teknisi</item>
+        <item>Tenaga Tata Usaha</item>
+        <item>Tentara Nasional Indonesia</item>
+        <item>Transportasi</item>
+        <item>Tukang Batu</item>
+        <item>Tukang Cukur</item>
+        <item>Tukang Gigi</item>
+        <item>Tukang Jahit</item>
+        <item>Tukang Kayu</item>
+        <item>Tukang Las / Pandai Besi</item>
+        <item>Tukang Listrik</item>
+        <item>Tukang Sol Sepatu</item>
+        <item>Ustadz / Mubaligh</item>
+        <item>Wakil Bupati</item>
+        <item>Wakil Gubernur</item>
+        <item>Wakil Presiden</item>
+        <item>Wakil Walikota</item>
+        <item>Walikota</item>
+        <item>Wartawan</item>
+        <item>Wiraswasta</item>
+    </string-array>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="infoPendaftaran">Alhamdulillah, Mts Pesantren Persatuan Islam 259 Firdaus Pangalengan kembali membuka "Pendaftaran Calon Santri Baru".\nBerikut kami sampaikan informasi Pendaftaran Calon Santri Baru Tahun Ajaran
+    </string>
+
+    <string name="tatacara">1. Siapkan Pas Foto terbaru Calon Santri berlatar biru berformat (JPG/PNG/JPEG)\n2. Siapkan File KK, Akta Kelahiran, Ijazah Terakhir, KIP (jika ada) berformat PDF\n3. Klik Formulir dibawah, lalu isi formulir dan kirim formulir\n4. Lalu akan pindah ke halaman pembayaran\n5. Pilih metode pembayaran, lalu bayar\n6. Setelah membayar nanti di menu transaksi klik transaksi yang sudah dibayar dan akan otomatis menggenerate QR-Code\n7. QR-Code tersebut digunakan saat pelaksanaan tes calon santri baru\n8. Tunggu informasi selanjutnya\n
+    </string>
+
+    <string name="materites">1. Baca Tulis Al-Quran\n2. Tes kemampuan mengahafal ayat Al-Quran\n3. Pengetahuan umum\n4. Interview
+    </string>
+
+    <string name="agendakegiatan">1. Pendaftaran Online\n2. Tes Kemampuan Anak \n3. Daftar Ulang\n
+    </string>
+    <string name="informasi_pendaftaran">Informasi Pendaftaran</string>
+    <string name="testing">Testing \nCalon Santri</string>
+
+    <string name="profilpesantren">Persatuan Islam (PERSIS) adalah lembaga dakwah dan pendidikan yang berdiri sejak tahun 1923 di Indonesia dengan tujuan menjaga mata rantai
+    dakwah dari sejak Nabi (Waratsatul Anbiya) dalam kata lain kaderisasi dakwah. Manhaj pendidikan Persatuan Islam adalam membangun generasi Mujahid, Mujtahid, dan Mujaddid,
+    terutama dalam cara berfikir (Tajdidul Fikr) umat yang berlandaskan Al-Quran dan Sunnah. \n Salah satu Lembaga Pendidikan yang dikembangkan Persatuan Islam adalah Pendidikan Pesantren
+    yang keberadaanya telah lama dikenal masyarakat Indonesia sebagai lembaga kaderisasi Ulama dan sebagai lembaga perjuangan untuk melawan segala bentuk penjajahan dan kemungkaran.</string>
+
+    <string name="profilpesantrendua">Pesantren Persatuan Islam 259 Firdaus Pangalengan merupakan lembaga pendidikan yang lahir sejak tahun 1990. Dan diwakafkan pengelolaanya kepada Jamiyyah Persis
+    pada tahun 2013. PPI 259 Firdaus Pangalengan merupakan wujud harapan umat yang diharapkan mampu memberi layanan pendidikan secara komprehensif pada seluruh lapisan masyarakat agar lahir generasi bangsa
+    yang handal dengan ketinggian ilmu, kemulian akhlak dan keterampilan teknologi. \nPesantren Persatuan Islam 259 Firdaus Pangalengan memiliki beberapa jenjang menengah atas. Yaitu jenjang Raudhatul Athfal (RA), Diniyah Ula (DU), Madrasah Ibtidaiyah (MI),
+    Madrasah Tsanawiyyah (MTs), dan Mualimien atau Madrasah Aliyyah (MA).</string>
+
+    <string name="visiPesantren">Terwujudnya lembaga pendidikan pesantren yang Tafaqquh Fid-din, unggul dalam berbahasa arab dan memiliki jiwa kewirausahaan</string>
+
+    <string name="misiPesantren">
+        1. Membawa peserta didik yang beradap\n
+        2. Mewujudkan profil ideal santri Persis\n
+    </string>
+    <string name="book_cover">Book Cover</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="back">Back</string>
+    <string name="buku">Buku</string>
+    <string name="daftarAnggota">
+        Untuk mendaftar sebagai anggota perpustakaan, Anda diharapkan untuk membayar biaya pendaftaran sebesar Rp 15.000,-. Biaya ini akan digunakan untuk pengembangan perpustakaan kami ke depannya.
+    </string>
+
+    <string name="ketentuanUmum">
+        - Penggunaan fasilitas perpustakaan diatur berdasarkan ketentuan yang berlaku.\n
+        - Keterlambatan dalam pengembalian buku akan dikenakan sanksi berupa denda sebesar Rp 500,- per hari per buku.\n
+        - Semua buku yang dipinjam harus dijaga dengan baik dan dikembalikan dalam kondisi yang sama saat dipinjam.\n
+        - Kerusakan atau kehilangan buku harus dilaporkan segera kepada petugas perpustakaan.\n
+        - Dilarang merusak, mencoret-coret, atau melakukan tindakan yang merugikan fasilitas perpustakaan.\n
+        - Layanan perpustakaan seperti ruang baca, komputer, dan fasilitas lainnya dapat digunakan sesuai dengan aturan yang berlaku.\n
+        \n\nTerima kasih atas perhatian dan kerjasama Anda dalam menjaga kualitas layanan perpustakaan kami. Dengan bergabung sebagai anggota, Anda membantu memperkaya pengetahuan dan meningkatkan akses literasi masyarakat.
+        \n\nSalam hangat,Tim Perpustakaan 259 Firdaus
+    </string>
+
+    <string name="accessibility_service_description">layanan aksesibilitas</string>
+
+    <string name="rules">1. Login menggunakan akun yang berada di kartu ujian\n\n2. Masukan token yang diberikan oleh pengawas\n\n3. Berdo’a sebelum mengerjakan soal \n\n4. Bacalah soal-soal sebelum Anda menjawab. \n\n5. Pilih jawaban yang paling tepat menurut kamu diantara pilihan ganda yang ada.\n\n6. Kerjakan soal dengan penuh kejujuran tanpa dibantu oleh siapapun dan oleh apapun.\n\n7. Laporkan kepada Pengawas Ruangan bila ada masalah terhadap soal\n\n8. Sebelum dikirim dicek kembali jawaban yang sudah dipilih.\n\n9. Peserta ujian hanya bisa mengerjakan soal ujian satukali.</string>
+
+</resources>

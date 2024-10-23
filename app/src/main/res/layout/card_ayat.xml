@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_surat"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="4dp"
+    android:background="@color/white"
+    app:cardCornerRadius="10dp"
+    app:contentPadding="7dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_baseline_panorama_fish_eye_24">
+            <TextView
+                android:id="@+id/noAyat_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/Orange"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:paddingRight="7dp"
+                    android:id="@+id/txtAyat_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Green"
+                    android:fontFamily="@font/arabic"
+                    android:textSize="24sp"
+                    android:lineSpacingExtra="18dp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:paddingStart="9dp"
+                    android:id="@+id/txtArti_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"/>
+            </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

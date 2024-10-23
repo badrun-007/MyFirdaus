@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bulan"
+        android:fontFamily="@font/poppinsbold"
+        android:textSize="20sp"
+        android:textColor="@color/Green"
+        android:textAlignment="center"/>
+
+
+    <NumberPicker
+        android:id="@+id/month_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tahun"
+        android:fontFamily="@font/poppinsbold"
+        android:textSize="20sp"
+        android:textColor="@color/Green"
+        android:textAlignment="center"/>
+
+    <NumberPicker
+        android:id="@+id/year_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

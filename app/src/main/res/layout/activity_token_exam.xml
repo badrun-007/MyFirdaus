@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.TokenExamActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+            <ImageView
+                android:id="@+id/imgSantri"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/formulir"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:paddingStart="10dp">
+
+                <TextView
+                    android:id="@+id/namaSantri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama : "
+                    android:fontFamily="@font/poppinsregular"
+                    android:textColor="@color/Green"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/kelasExam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Kelas :" />
+
+                <TextView
+                    android:id="@+id/matpelExam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Matapelajaran :" />
+
+                <TextView
+                    android:id="@+id/timeStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Mulai Ujian :" />
+
+                <TextView
+                    android:id="@+id/timeEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Akhir Ujian :" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/news"
+            android:layout_marginHorizontal="9dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Penilaian Akhir Semester"
+            android:fontFamily="@font/poppinsextra"
+            android:layout_marginBottom="1dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/Green"/>
+
+        <View
+            android:layout_below="@+id/news"
+            android:id="@+id/garis"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="9dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/Green"
+            android:layout_height="5dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/field_baca_alquran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/garis"
+            android:hint="Token Soal">
+            <EditText
+                android:id="@+id/token_exam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+                android:fontFamily="@font/poppinsmedium"
+                android:textColor="@color/Green"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/kirimtoken"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/field_baca_alquran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masuk"/>
+
+        <ProgressBar
+            android:id="@+id/pb"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/c_prog_bar"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

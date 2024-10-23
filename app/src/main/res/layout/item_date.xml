@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal"
+    android:layout_width="40dp" android:layout_height="40dp"
+    android:gravity="center"
+    android:paddingTop="6dp"
+    android:id="@+id/item_layout"
+    android:paddingBottom="8dp">
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="13sp"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/dot"
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:paddingTop="2dp"
+        android:paddingLeft="1dp"
+        android:visibility="visible" />
+</LinearLayout>

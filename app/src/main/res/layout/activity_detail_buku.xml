@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DetailBukuActivity">
+
+
+    <!-- Image and Bookmark -->
+    <RelativeLayout
+        android:id="@+id/book_cover_detail_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/book_cover_detail"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/book_cover" />
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:contentDescription="@string/back"
+            app:tint="@color/Green" />
+
+        <ImageButton
+            android:id="@+id/bookmark_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_bookmark"
+            app:tint="@android:color/darker_gray"
+            android:contentDescription="@string/bookmark" />
+    </RelativeLayout>
+
+    <!-- Book details -->
+    <ScrollView
+        android:layout_below="@id/book_cover_detail_field"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:layout_above="@+id/btn_pinjam_sekarang">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:fontFamily="@font/poppinsmedium"
+                android:id="@+id/book_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/book_author_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray" />
+
+            <TextView
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/isbn_book_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/kode_book_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/ke_book_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:visibility="gone"
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/harga_book_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/book_year_publisher_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/book_genre_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/jenis_buku"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:visibility="gone"
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/stok_buku"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:visibility="gone"
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/yang_dipinjam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:visibility="gone"
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/sisa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/Orange" />
+
+            <TextView
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold"
+                android:id="@+id/tanggal_tersedia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/Orange" />
+
+            <TextView
+                android:fontFamily="@font/poppinsregular"
+                android:id="@+id/book_description_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="15sp"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Borrow button -->
+    <Button
+        android:textAllCaps="false"
+        android:id="@+id/btn_pinjam_sekarang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pinjam Sekarang"
+        android:textSize="18sp"
+        android:backgroundTint="@color/Green"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp" />
+</RelativeLayout>
