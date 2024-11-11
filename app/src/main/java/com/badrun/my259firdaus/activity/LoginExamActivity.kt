@@ -38,6 +38,8 @@ class LoginExamActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_exam)
 
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
         init()
 
         startLockTask()
@@ -105,7 +107,7 @@ class LoginExamActivity : AppCompatActivity() {
                                 startActivity(i)
                                 finish()
                             } else {
-                                Toast.makeText(this@LoginExamActivity, res.message, Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@LoginExamActivity, res.message, Toast.LENGTH_LONG).show()
                             }
                         }
                     }

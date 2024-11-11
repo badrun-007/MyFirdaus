@@ -32,6 +32,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.badrun.my259firdaus.activity.LoginActivity
 import com.badrun.my259firdaus.activity.WelcomeActivity
 import com.badrun.my259firdaus.api.ApiConfig
 import com.badrun.my259firdaus.fragment.AkunFragment
@@ -365,6 +366,18 @@ class MainActivity : AppCompatActivity() {
     private fun initGetUSer(){
        val user = s.getUser()
 
+        if (user == null) {
+            Toast.makeText(this, "Session expired, please login again", Toast.LENGTH_SHORT).show()
+
+            s.deleteShared()
+
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+            return
+        }
+
         when(user!!.role){
             2 -> {
                ApiConfig.create(this).getGuru(user.email).enqueue(object : Callback<ResponseGuru> {
@@ -372,7 +385,7 @@ class MainActivity : AppCompatActivity() {
 
                        if (response.isSuccessful){
                            val res = response.body()
-                           if (res!!.code == 1){
+                           if (res?.data != null){
                                s.setGuru(res.data)
                            }
                        }
@@ -390,7 +403,7 @@ class MainActivity : AppCompatActivity() {
 
                         if (response.isSuccessful){
                             val res = response.body()
-                            if (res!!.code == 1){
+                            if (res?.data != null){
                                 s.setSantri(res.data)
                             }
                         }
@@ -408,7 +421,7 @@ class MainActivity : AppCompatActivity() {
 
                         if (response.isSuccessful){
                             val res = response.body()
-                            if (res!!.code == 1){
+                            if (res?.data != null){
                                 s.setOrangtua(res.data)
                             }
                         }
@@ -426,7 +439,7 @@ class MainActivity : AppCompatActivity() {
 
                         if (response.isSuccessful){
                             val res = response.body()
-                            if (res!!.code == 1){
+                            if (res?.data != null){
                                 s.setTamu(res.data)
                             }
                         }

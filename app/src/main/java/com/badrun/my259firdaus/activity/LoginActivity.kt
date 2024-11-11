@@ -112,7 +112,7 @@ class LoginActivity : AppCompatActivity() {
                             startActivity(i)
                             finish()
                         } else {
-                            Toast.makeText(this@LoginActivity, "Username atau Password salah!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LoginActivity, res.message, Toast.LENGTH_LONG).show()
                         }
                     }
                 }

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.SeekBar
@@ -49,13 +50,17 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
     private var timer: CountDownTimer? = null
     private var timeLeftInMillis: Long = 0L
     private lateinit var pb : ProgressBar
+    private lateinit var buttonShow : Button
+    private lateinit var rvListSoal: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_soal)
 
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
         transaksiId = intent.getIntExtra("transaksi_id", 0)
-        val kelasId = intent.getIntExtra("class_id",0)
+        val kelasId = intent.getStringExtra("class_id")
         timeLeftInMillis = intent.getLongExtra("durasi",0L)
         btnPrevious = findViewById(R.id.btn_previous)
         btnNext = findViewById(R.id.btn_next)
@@ -65,7 +70,7 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
         timerTextView = findViewById(R.id.timerTextView)
 
 
-        getSoal(kelasId,transaksiId)
+        getSoal(kelasId!!.toInt(),transaksiId)
 
         // Set listener untuk SeekBar
         val seekBar = findViewById<SeekBar>(R.id.font_size_seekbar)
@@ -84,6 +89,17 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
                 // Tidak perlu melakukan apa-apa di sini
             }
         })
+
+        rvListSoal = findViewById(R.id.recyclerViewSoal)
+        buttonShow = findViewById(R.id.btn_hide_show)
+
+        buttonShow.setOnClickListener {
+            if (rvListSoal.visibility == View.GONE){
+                rvListSoal.visibility = View.VISIBLE
+            } else {
+                rvListSoal.visibility = View.GONE
+            }
+        }
 
     }
 
@@ -106,9 +122,30 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
                 val score = calculateScore(questions).toFloat() // Ganti dengan fungsi perhitungan skor yang sesuai
                 pb.visibility = View.VISIBLE
                 btnSubmit.isEnabled = false
+                disableInteractions()
                 submitAnswers(transaksiId, score)
             }
         }.start()
+    }
+
+    private fun disableInteractions() {
+        // Nonaktifkan geser dan sentuhan pada ViewPager
+        findViewById<ViewPager>(R.id.viewPager).setOnTouchListener { _, _ -> true }
+
+        // Nonaktifkan tombol
+        btnPrevious.isEnabled = false
+        btnNext.isEnabled = false
+        btnSubmit.isEnabled = false
+    }
+
+    private fun enableInteractions() {
+        // Aktifkan kembali geser dan sentuhan pada ViewPager
+        findViewById<ViewPager>(R.id.viewPager).setOnTouchListener(null)
+
+        // Aktifkan kembali tombol sesuai dengan kondisi saat ini
+        btnPrevious.isEnabled = true
+        btnNext.isEnabled = true
+        btnSubmit.isEnabled = true
     }
 
     private fun getSoal(kelasId:Int, transaksiID:Int){
@@ -143,7 +180,7 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
 
                 override fun onFailure(call: Call<QuestionResponse>, t: Throwable) {
                     pb.visibility = View.GONE
-                    Toast.makeText(this@SoalActivity, "Tidak dapat terhubung dengan server", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SoalActivity, "Tidak dapat terhubung dengan server", Toast.LENGTH_LONG).show()
                 }
 
             })
@@ -240,7 +277,7 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
 
         btnSubmit.setOnClickListener {
             if (studentAnswers.size < totalSoal) {
-                Toast.makeText(this, "Harap jawab semua soal sebelum mengirimkan jawaban!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Harap jawab semua soal sebelum mengirimkan jawaban!", Toast.LENGTH_LONG).show()
             } else {
                 // Calculate the score
                 val skor = calculateScore(questions)
@@ -248,8 +285,6 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
                 pb.visibility = View.VISIBLE
                 btnSubmit.isEnabled = false
                 submitAnswers(transaksiId,nilai)
-                // Show the score
-                Toast.makeText(this, "Skor Anda: $nilai", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -277,6 +312,7 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
         ApiConfig.create(this).answerStore(answerRequest).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 pb.visibility = View.GONE
+                enableInteractions()
                 btnSubmit.isEnabled = true
                 if (response.isSuccessful) {
                     Toast.makeText(this@SoalActivity, "Jawaban berhasil disimpan.", Toast.LENGTH_SHORT).show()
@@ -284,20 +320,20 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
                     stopLockTask()
                     finish()
                 } else {
-                    Toast.makeText(this@SoalActivity, "Gagal menyimpan jawaban: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SoalActivity, "Gagal menyimpan jawaban: ${response.message()}", Toast.LENGTH_LONG).show()
                 }
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 pb.visibility = View.GONE
                 btnSubmit.isEnabled = true
-                Toast.makeText(this@SoalActivity, "Tidak dapat terhubung dengan server: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SoalActivity, "Tidak dapat terhubung dengan server: ${t.message}", Toast.LENGTH_LONG).show()
             }
         })
     }
 
     override fun onBackPressed() {
-        Toast.makeText(this, "Tidak Boleh Keluar!!!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Tidak Boleh Keluar!!!", Toast.LENGTH_LONG).show()
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {

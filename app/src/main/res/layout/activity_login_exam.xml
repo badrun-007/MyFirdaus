@@ -109,7 +109,7 @@
                             android:id="@+id/et_email_log"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textEmailAddress"
+                            android:inputType="text"
                             android:textColor="@color/white"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -150,7 +150,7 @@
                             android:id="@+id/et_pass_log"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textPassword"
+                            android:inputType="text"
                             android:selectAllOnFocus="true"
                             android:autofillHints="sas" />
 

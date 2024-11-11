@@ -153,20 +153,6 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/send_verifikasi"
-                    android:layout_gravity="bottom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Verifikasi"
-                    android:visibility="gone"
-                    android:textColor="@color/Green"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="5dp"/>
-
             </LinearLayout>
 
             <LinearLayout

@@ -223,7 +223,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("get-exam")
     fun getExam(
-        @Field("class_id")class_id:Int,
+        @Field("class_level")class_id:Int,
         @Field("transaction_id")transaction_id:Int): Call<QuestionResponse>
 
     @POST("set-answer") // Sesuaikan dengan endpoint API Anda

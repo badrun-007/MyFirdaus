@@ -1,0 +1,9 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <scale
+            android:drawable="@drawable/baseline_arrow_forward_ios_24"
+            android:scaleWidth="50%"
+            android:scaleHeight="50%"
+            android:gravity="center"/>
+    </item>
+</layer-list>

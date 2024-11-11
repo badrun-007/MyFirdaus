@@ -18,6 +18,7 @@ object ApiConfig {
 
     object iplink {
         val ip = "lebet.myfirdaus.com"
+        /*val ip = "192.168.100.77"*/
     }
 
         fun create(context: Context, baseUrl : String = "https://${iplink.ip}/api/") : ApiService{

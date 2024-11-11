@@ -1008,6 +1008,8 @@ class PsbActivity : AppCompatActivity() {
                             spinnerProvinsiAyah.adapter = provinsiAdapter
                             spinnerProvinsiIbu.adapter = provinsiAdapter
 
+
+
                             // Mencegah pengguna untuk mengklik AutoCompleteTextView kabupaten sebelum memilih provinsi
                             spinnerKabupaten.isClickable = false
 
@@ -1020,6 +1022,9 @@ class PsbActivity : AppCompatActivity() {
                                         val selectedProvinsi = provinsiList[position]
                                         getKabupaten(selectedProvinsi.id)
                                     }
+
+                                    kecamatanList.clear()
+                                    desaList.clear()
 
                                 }
                                 override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -1067,9 +1072,12 @@ class PsbActivity : AppCompatActivity() {
                                         val selectedKabupaten = kabupatenList[position]
                                         getKecamatan(selectedKabupaten.id)
                                     }
+
+                                    desaList.clear()
                                 }
                                 override fun onNothingSelected(parent: AdapterView<*>?) {}
                             }
+
                         }
 
                     }

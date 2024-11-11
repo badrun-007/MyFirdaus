@@ -3,30 +3,20 @@ package com.badrun.my259firdaus.activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.badrun.my259firdaus.R
 import com.badrun.my259firdaus.api.ApiConfig
-import com.badrun.my259firdaus.model.Buku
-import com.badrun.my259firdaus.model.JadwalExam
-import com.badrun.my259firdaus.model.ResponseJadwalExam
-import com.badrun.my259firdaus.model.ResponseSetExam
 import com.badrun.my259firdaus.model.ResponseSetToken
-import com.badrun.my259firdaus.model.Soal
-import com.badrun.my259firdaus.model.SoalExam
-import com.badrun.my259firdaus.model.User
 import com.badrun.my259firdaus.model.userExam
 import com.bumptech.glide.Glide
-import org.w3c.dom.Text
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -52,6 +42,8 @@ class TokenExamActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_token_exam)
+
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         dataUser = (intent.getSerializableExtra("data_exam") as? userExam)!!
 
@@ -105,7 +97,7 @@ class TokenExamActivity : AppCompatActivity() {
 
     private fun getSoal() {
         if (tokenExam.text.isEmpty()){
-            tokenExam.error = "Isi Dulu Token Soalnya!!"
+            tokenExam.error = "Isi Dulu Token Soalnya!"
             tokenExam.requestFocus()
             return
         } else {
@@ -137,7 +129,8 @@ class TokenExamActivity : AppCompatActivity() {
                             if (res.code == 1) {
                                 val i = Intent(this@TokenExamActivity,SoalActivity::class.java)
                                 i.putExtra("transaksi_id",res.data)
-                                i.putExtra("class_id",dataUser.class_id)
+                                val classLevel = dataUser.class_name.dropLast(1)
+                                i.putExtra("class_id",classLevel)
                                 i.putExtra("end_time",dataUser.end_time)
                                 i.putExtra("durasi",durasi)
                                 startActivity(i)
