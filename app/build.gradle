@@ -24,13 +24,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "BASE_URL", "\"https://myfirdaus.com/api/coba/\""
-            buildConfigField "String", "CLIENT_KEY", "\"Mid-client-cc19XedYzV4Gt3VU\""
+            buildConfigField "String", "BASE_URL", "\"baseurlapi\""
+            buildConfigField "String", "CLIENT_KEY", "\"client-key-production\""
             signingConfig signingConfigs.debug
         }
         debug {
-            buildConfigField "String", "BASE_URL", "\"https://myfirdaus.com/api/coba/\""
-            buildConfigField "String", "CLIENT_KEY", "\"SB-Mid-client-dkQXA4HgozXnJr53\""
+            buildConfigField "String", "BASE_URL", "\"baseurlapi/\""
+            buildConfigField "String", "CLIENT_KEY", "\"client-key-sandbox\""
         }
     }
     compileOptions {
