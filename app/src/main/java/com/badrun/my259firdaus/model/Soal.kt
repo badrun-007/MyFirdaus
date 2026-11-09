@@ -4,7 +4,6 @@ data class Soal(val id: Int,
                 val question_text: String,
                 val passage: String?,
                 val image_url: String?,
-                val correct_option: String,
                 val options: List<Option>){
 
     data class Option(
@@ -14,5 +13,4 @@ data class Soal(val id: Int,
         val image_url: String?
     )
 }
-
 

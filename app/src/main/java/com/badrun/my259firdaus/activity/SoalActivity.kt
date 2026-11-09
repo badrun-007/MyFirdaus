@@ -112,7 +112,7 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
 
     }
 
-    private fun startCountdownTimer(questions: List<Soal>) {
+    private fun startCountdownTimer() {
         timer = object : CountDownTimer(timeLeftInMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeftInMillis = millisUntilFinished
@@ -130,11 +130,10 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
 
             override fun onFinish() {
                 // Waktu habis, panggil submitAnswers
-                val score = calculateScore(questions).toFloat() // Ganti dengan fungsi perhitungan skor yang sesuai
                 pb.visibility = View.VISIBLE
                 btnSubmit.isEnabled = false
                 disableInteractions()
-                submitAnswers(transaksiId, score)
+                submitAnswers(transaksiId)
             }
         }.start()
     }
@@ -195,18 +194,6 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
                 }
 
             })
-    }
-
-    private fun calculateScore(questions: List<Soal>): Int {
-        var score = 0
-        for (question in questions) {
-            val selectedLabel = serverAnswers[question.id] // Get the selected label for this question
-            // Check if the selected label matches the correct option
-            if (selectedLabel != null && selectedLabel == question.correct_option) {
-                score++
-            }
-        }
-        return score
     }
 
     private fun saveQuestionsLocally(questions: List<Soal>) {
@@ -293,16 +280,13 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
             } else if (studentAnswers.size < totalSoal) {
                 Toast.makeText(this, "Harap jawab semua soal sebelum mengirimkan jawaban!", Toast.LENGTH_LONG).show()
             } else {
-                // Calculate the score
-                val skor = calculateScore(questions)
-                val nilai = (skor.toFloat() / totalSoal) * 100
                 pb.visibility = View.VISIBLE
                 btnSubmit.isEnabled = false
-                submitAnswers(transaksiId,nilai)
+                submitAnswers(transaksiId)
             }
         }
 
-        startCountdownTimer(questions)
+        startCountdownTimer()
 
     }
 
@@ -315,13 +299,13 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
         soalNoAdapter.resetAnsweredStatus()
     }
 
-    private fun submitAnswers(idTrans:Int, score:Float) {
+    private fun submitAnswers(idTrans:Int) {
         val transaksiId = idTrans
         val answers = serverAnswers.map {
             AnswerRequest.UserAnswer(it.key, it.value)
         }
 
-        val answerRequest = AnswerRequest(transaksiId, answers, score)
+        val answerRequest = AnswerRequest(transaksiId, answers, 0f)
 
         ApiConfig.create(this).answerStore(answerRequest).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
