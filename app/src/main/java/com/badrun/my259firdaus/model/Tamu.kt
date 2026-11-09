@@ -16,5 +16,6 @@ data class Tamu(
     val angkatan : String,
     val status : String,
     val created_at : String,
-    val updated_at : String
+    val updated_at : String,
+    val kelas : String?
 )

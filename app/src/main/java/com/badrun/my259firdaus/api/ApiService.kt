@@ -1,6 +1,7 @@
 package com.badrun.my259firdaus.api
 
 import com.badrun.my259firdaus.model.*
+import com.badrun.my259firdaus.model.response.*
 import kotlinx.coroutines.Deferred
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -154,6 +155,7 @@ interface ApiService {
     fun setPsb(
         @Part("user_id") userId: RequestBody,
         @Part("nama_santri") namaSantri: RequestBody,
+        @Part("kk_santri") kkSantri: RequestBody,
         @Part("nik_santri") nikSantri: RequestBody,
         @Part("nisn_santri") nisnSantri: RequestBody,
         @Part("tempatlahir_santri") tempatLahirSantri: RequestBody,
@@ -161,6 +163,7 @@ interface ApiService {
         @Part("anakke_santri") anakke: RequestBody,
         @Part("saudarake_santri") saudara: RequestBody,
         @Part("gender") gender: RequestBody,
+        @Part("pondok") pondok: RequestBody,
         @Part("alamat") alamat: RequestBody,
         @Part("sekolah_asal") sekolahAsal: RequestBody,
         @Part("alamat_sekolah_asal") alamatSekolahAsal: RequestBody,
@@ -203,7 +206,15 @@ interface ApiService {
         @Part kk: MultipartBody.Part,
         @Part akte: MultipartBody.Part,
         @Part ijazah: MultipartBody.Part,
-        @Part kip: MultipartBody.Part
+        @Part kip: MultipartBody.Part,
+        @Part perjanjian: MultipartBody.Part,
+        @Part kelulusan: MultipartBody.Part,
+        @Part nisn: MultipartBody.Part,
+        @Part kptayah: MultipartBody.Part,
+        @Part ktpibu: MultipartBody.Part,
+        @Part kkb: MultipartBody.Part,
+        @Part kks: MultipartBody.Part,
+        @Part pkh: MultipartBody.Part
     ): Call<ResponseDaftarUlang>
 
     @FormUrlEncoded
@@ -228,5 +239,58 @@ interface ApiService {
 
     @POST("set-answer") // Sesuaikan dengan endpoint API Anda
     fun answerStore(@Body request: AnswerRequest): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("get-matpel")
+    fun getMatpel(@Field("id")userId:Int): Call<ResponseMatpel>
+
+    @GET("materi/{guru_id}")
+    fun getMateri(@Path("guru_id") guruId: Int): Call<ResponseMateri>
+
+    @GET("materi/santri/{kelas}")
+    fun getMateriSantri(@Path("kelas") kelas: String): Call<ResponseMateri>
+
+    @Multipart
+    @POST("materistore")
+    fun uploadMateri(
+        @Part("guru_id") guruId: RequestBody,
+        @Part("matpel_id") matpelId: RequestBody,
+        @Part("kelas_id") kelasId: RequestBody,
+        @Part("judul") judul: RequestBody,
+        @Part("deskripsi") deskripsi: RequestBody,
+        @Part("mulai") mulai: RequestBody?,
+        @Part("deadline") deadline: RequestBody?,
+        @Part("link") link: RequestBody?,
+        @Part file: MultipartBody.Part?,
+        @Part images: List<MultipartBody.Part>?
+    ): Call<ResponseCheck>
+
+    @Multipart
+    @POST("kirim-jawaban")
+    fun sendJawaban(
+        @Part("user_id") userId: RequestBody,
+        @Part("tugas_id") tugasId: RequestBody,
+        @Part("teks") teks: RequestBody,
+        @Part images: List<MultipartBody.Part> // Tetap List, TAPI perhatikan pemanggilannya!
+    ): Call<ResponseCheck>
+
+    @GET("guru-materi-status")
+    fun getGuruMateriStatus(): Call<List<ResponseGetGuru>>
+
+    @PUT("materi/{id}")
+    fun updateMateri(@Path("id") id: Int, @Body materi: Materi): Call<Materi>
+
+    @FormUrlEncoded
+    @POST("tugas/jawaban-santri")
+    fun getJawabanTugas(@Field("matpel_id") matpelId: Int, @Field("kelas") kelas: String): Call<ResponseJawabanSantri>
+
+    @DELETE("materi/{id}")
+    fun deleteMateri(@Path("id") id: Int): Call<Void>
+
+    @PUT("user/{userId}/update")
+    fun updateUser(
+        @Path("userId") userId: Int,
+        @Body requestBody: Map<String, String> // Menggunakan Map untuk data yang ingin diupdate
+    ): Call<ResponseCheck>
 
 }

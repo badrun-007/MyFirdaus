@@ -5,9 +5,10 @@ import java.io.Serializable
 data class userExam(
     val id : Int,
     val nama : String,
-    val username : String ,
+    val username : String,
     val class_id:Int,
     val class_name:String,
+    val ruang:String,
     val image:String,
     val schedule_id:Int,
     val matpel_id:Int,
@@ -15,5 +16,6 @@ data class userExam(
     val start_time:String,
     val end_time:String,
     val transaksi_id:Int,
-    val token:String
+    val token:String,
+    val created_at:String
 ) : Serializable

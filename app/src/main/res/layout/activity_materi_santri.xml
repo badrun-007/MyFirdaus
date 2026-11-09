@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.daring.MateriSantriActivity">
+
+    <!-- Judul & Filter -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/tvJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daftar Tugas"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/Green"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Chip Group Matpel -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mata Pelajaran"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:layout_marginBottom="4dp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupMatpel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:chipSpacing="8dp"
+            android:layout_marginBottom="12dp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_marginTop="140dp"
+        android:id="@+id/pb"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminateDrawable="@drawable/c_prog_bar"
+        android:layout_centerInParent="true"/>
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMateri"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="72dp"
+        android:clipToPadding="false"
+        android:padding="16dp" />
+
+    <!-- Tombol Tambah -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabTambahMateri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Tambah Materi"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        app:tint="@android:color/white"
+        app:backgroundTint="@color/Green" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

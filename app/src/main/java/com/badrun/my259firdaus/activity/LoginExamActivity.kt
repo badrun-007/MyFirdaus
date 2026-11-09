@@ -22,6 +22,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.badrun.my259firdaus.R
 import com.badrun.my259firdaus.api.ApiConfig
 import com.badrun.my259firdaus.model.ResponseLoginExam
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,6 +36,8 @@ class LoginExamActivity : AppCompatActivity() {
     private lateinit var pass : EditText
     private lateinit var pb: ProgressBar
 
+    private lateinit var bannerAd : AdView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_exam)
@@ -42,7 +46,12 @@ class LoginExamActivity : AppCompatActivity() {
 
         init()
 
-        startLockTask()
+        val isAppSatu = isAppInLockTaskMode()
+        if(isAppSatu){
+            Log.e("BDR", "onCreate: Sudah pinned", )
+        } else {
+            startLockTask()
+        }
 
         buttonMasuk.setOnClickListener {
             val isApp = isAppInLockTaskMode()
@@ -55,6 +64,10 @@ class LoginExamActivity : AppCompatActivity() {
             }
         }
 
+        bannerAd = findViewById(R.id.adBannerView3)
+        val adRequestSatu = AdRequest.Builder().build()
+        bannerAd.loadAd(adRequestSatu)
+
 
     }
 
@@ -62,7 +75,7 @@ class LoginExamActivity : AppCompatActivity() {
     private fun init (){
         textJudul = findViewById(R.id.tv_welcome)
         buttonMasuk = findViewById(R.id.btn_masuk_soal)
-        username = findViewById(R.id.et_email_log)
+        username = findViewById(R.id.et_text_log)
         pass = findViewById(R.id.et_pass_log)
         pb = findViewById(R.id.pb)
     }

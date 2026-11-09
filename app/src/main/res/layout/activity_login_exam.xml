@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -106,10 +107,11 @@
                         app:hintEnabled="false">
                         <EditText
                             android:background="@drawable/bg_edit_text"
-                            android:id="@+id/et_email_log"
+                            android:id="@+id/et_text_log"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text"
+                            android:selectAllOnFocus="true"
                             android:textColor="@color/white"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -184,6 +186,15 @@
                     android:textAllCaps="false"
                     android:fontFamily="@font/poppinsregular"/>
 
+                <com.google.android.gms.ads.AdView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/adBannerView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="ca-app-pub-3416538992401399/6838837134"
+                    android:layout_below="@id/btn_masuk_soal"
+                    android:layout_alignParentBottom="true"/>
 
 
                 <ProgressBar

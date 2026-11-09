@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -112,6 +113,16 @@
                     android:layout_centerHorizontal="true"
                     android:textAllCaps="false"
                     android:fontFamily="@font/poppinsregular"/>
+
+                <com.google.android.gms.ads.AdView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/adBannerView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="ca-app-pub-3416538992401399/6838837134"
+                    android:layout_below="@id/btn_masuk_exam"
+                    android:layout_alignParentBottom="true"/>
 
             </RelativeLayout>
         </ScrollView>

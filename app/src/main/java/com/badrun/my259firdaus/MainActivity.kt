@@ -4,6 +4,7 @@ package com.badrun.my259firdaus
 import android.Manifest
 import android.app.ActivityManager
 import android.app.AlarmManager
+import android.app.ComponentCaller
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -31,8 +32,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.badrun.my259firdaus.activity.LoginActivity
+import com.badrun.my259firdaus.activity.NewsDetailActivity
 import com.badrun.my259firdaus.activity.WelcomeActivity
 import com.badrun.my259firdaus.api.ApiConfig
 import com.badrun.my259firdaus.fragment.AkunFragment
@@ -52,10 +55,18 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.play.core.appupdate.AppUpdateManager
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.UpdateAvailability
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.Locale
+import kotlinx.coroutines.withTimeout
+import java.io.IOException
+import java.util.concurrent.TimeoutException
 
 class MainActivity : AppCompatActivity() {
 
@@ -86,6 +97,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var s : SharedPref
 
+    private lateinit var appUpdateManager: AppUpdateManager
+    private val REQUEST_CODE_UPDATE = 123
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,28 +107,39 @@ class MainActivity : AppCompatActivity() {
 
         s = SharedPref(this)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
+        // Inisialisasi App Update Manager
+        appUpdateManager = AppUpdateManagerFactory.create(this)
+
+        // Cek apakah ada update yang tersedia
+        checkForUpdate()
 
         val sharedPrefs = this.getSharedPreferences("AppSettings", Context.MODE_PRIVATE)
         val isNotifEnabled = sharedPrefs.getBoolean("NotificationEnabled", true)
-        // Cek jika service sudah berjalan, jangan jalankan lagi
+
         if (!isServiceRunning(PrayerService::class.java) && isNotifEnabled) {
             togglePrayerService(true)
         }
 
-        if (!s.getStatusLogin()){
-            val i = Intent(this,WelcomeActivity::class.java)
+        if (!s.getStatusLogin()) {
+            val i = Intent(this, WelcomeActivity::class.java)
             startActivity(i)
             finish()
         } else {
             initGetUSer()
             fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+            // Setup location callback with coroutine for suspend function
             locationCallback = object : LocationCallback() {
                 override fun onLocationResult(p0: LocationResult) {
                     p0 ?: return
                     for (location in p0.locations) {
                         location?.let {
-                            processLocation(it)
+                            // Use lifecycleScope to launch coroutine
+                            lifecycleScope.launch {
+                                processLocation(it)
+                            }
                         }
                     }
                 }
@@ -128,7 +153,41 @@ class MainActivity : AppCompatActivity() {
             ambilLokasi()
             createNotificationChannel(this)
         }
+    }
 
+    private fun checkForUpdate() {
+        val appUpdateInfoTask = appUpdateManager.appUpdateInfo
+
+        appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE &&
+                appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
+
+                // Jika ada update, mulai update langsung
+                appUpdateManager.startUpdateFlowForResult(
+                    appUpdateInfo,
+                    AppUpdateType.IMMEDIATE,  // Gunakan `FLEXIBLE` jika ingin opsi update nanti
+                    this,
+                    REQUEST_CODE_UPDATE
+                )
+            }
+        }
+    }
+
+    override fun onNewIntent(intent: Intent, caller: ComponentCaller) {
+        super.onNewIntent(intent)
+        handleDeepLink(intent)
+    }
+
+    private fun handleDeepLink(intent: Intent?) {
+        intent?.data?.let { uri ->
+            if (uri.pathSegments.size >= 2 && uri.pathSegments[0] == "news") {
+                val newsId = uri.pathSegments[1] // Dapatkan ID berita dari deep link
+                // Navigasi ke detail berita dengan ID tersebut
+                val detailIntent = Intent(this, NewsDetailActivity::class.java)
+                detailIntent.putExtra("newsId", newsId)
+                startActivity(detailIntent)
+            }
+        }
     }
 
     override fun getResources(): Resources {
@@ -143,22 +202,41 @@ class MainActivity : AppCompatActivity() {
         return Resources(assets, metrics, newConfig)
     }
 
-    private fun processLocation(location: Location) {
+    private suspend fun processLocation(location: Location) {
         val latitude = location.latitude
         val longitude = location.longitude
         dataString = "$latitude,$longitude"
         bundle.putString("KEY_DATA_STRING", dataString)
 
-        val geocoder = Geocoder(this, Locale.getDefault())
-        val addresses = geocoder.getFromLocation(latitude, longitude, 1)
-        val address = addresses?.get(0)
-        val subLocality = address?.locality ?: "Tidak Diketahui"
-        val locality = address?.subAdminArea ?: "Tidak Diketahui"
-        bundle.putString("KEY_SUB_LOCALITY", subLocality)
-        bundle.putString("KEY_LOCALITY", locality)
+        // Call the suspend function with a timeout for getting the address
+        val fullAddress = getLocationName(latitude, longitude)
+
+        if (fullAddress != null) {
+            // Coba split alamat
+            val addressLines = fullAddress.split(",")
+
+            // Menentukan kecamatan dan kabupaten berdasarkan pola umum
+            val subLocality = addressLines.getOrNull(2) ?: "Tidak Diketahui"  // Kecamatan mungkin di indeks ke-1
+            val locality = addressLines.getOrNull(3) ?: "Tidak Diketahui"     // Kabupaten/kota mungkin di indeks ke-2
+
+            bundle.putString("KEY_SUB_LOCALITY", subLocality.trim())
+            bundle.putString("KEY_LOCALITY", locality.trim())
+        } else {
+            bundle.putString("KEY_SUB_LOCALITY", "Tidak Diketahui")
+            bundle.putString("KEY_LOCALITY", "Tidak Diketahui")
+        }
 
         setUpBottomNav()
         swipeRefreshLayout.isRefreshing = false
+    }
+
+    // This suspend function fetches the full address within a timeout limit
+    suspend fun getLocationName(latitude: Double, longitude: Double): String? {
+        return try {
+            Geocoder(this@MainActivity).getFromLocation(latitude, longitude, 1)?.firstOrNull()?.getAddressLine(0)
+        } catch (e: IOException) {
+            null // Handle network or other I/O issues
+        }
     }
 
     private fun startLocationUpdates() {
@@ -235,7 +313,10 @@ class MainActivity : AppCompatActivity() {
                     if (location == null) {
                         Toast.makeText(this, "Lokasi tidak ditemukan", Toast.LENGTH_LONG).show()
                     } else {
-                        processLocation(location)
+                        // Launch a coroutine to call the suspend function
+                        lifecycleScope.launch {
+                            processLocation(location)
+                        }
                     }
                 }
             } else {
@@ -245,6 +326,7 @@ class MainActivity : AppCompatActivity() {
             requestPermission()
         }
     }
+
 
     private fun requestPermission() {
         val permissionsToRequest = mutableListOf<String>()

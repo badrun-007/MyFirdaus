@@ -1,0 +1,16 @@
+
+´
+;
+android*http://schemas.android.com/apk/res/androidLinearLayout"J
+*http://schemas.android.com/apk/res/androidpadding8dp"(Õ„2:h"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"R
+*http://schemas.android.com/apk/res/androidorientationvertical"(Ä„2:0*
+øTextView"`
+*http://schemas.android.com/apk/res/androidlayout_widthwrap_content"(ô„2:0şÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"L
+*http://schemas.android.com/apk/res/androidtextSize16sp"(•„2:h‚ "v
+*http://schemas.android.com/apk/res/android	textColor@android:color/black"(˜„2
+Œ€˜android:color/black0"a
+*http://schemas.android.com/apk/res/androidid@+id/textInfo"(Ğ„2
+Â‡¨øid/textInfo03

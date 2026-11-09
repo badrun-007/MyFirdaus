@@ -98,6 +98,28 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
+                    android:id="@+id/field_KK_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="16"
+                    app:boxStrokeColor="@color/Orange"
+                    android:hint="Nomor Kartu Keluarga"
+                    android:layout_below="@+id/field_nama_formulir">
+                    <EditText
+                        android:id="@+id/kk_santri_formulir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Green"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
                     android:id="@+id/field_NIK_formulir"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -291,6 +313,36 @@
                             android:fontFamily="@font/poppinsmedium"/>
                     </RadioGroup>
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/field_pondok_formulir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    app:boxStrokeColor="@color/Orange"
+                    android:orientation="vertical"
+                    android:hint="Pondok">
+
+                    <Spinner
+                        android:id="@+id/spinner_pondok"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:textColor="@color/Orange"
+                        android:completionThreshold="1"
+                        android:focusable="true"
+                        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                        android:backgroundTint="@color/Green"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="9dp"
+                        android:background="#797979"
+                        android:layout_height="1dp"/>
+
+                </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_below="@+id/field_gender_formulir"

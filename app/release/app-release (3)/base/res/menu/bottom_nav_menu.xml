@@ -1,0 +1,32 @@
+
+Ì
+;
+android*http://schemas.android.com/apk/res/androidBmenu*ö
+íitem"o
+*http://schemas.android.com/apk/res/androidtitle@string/title_home"(áƒ„2
+£„Ğøstring/title_home0"‚
+*http://schemas.android.com/apk/res/androidicon@drawable/ic_home_black_24dp"(‚€„2'
+%ı‚ ødrawable/ic_home_black_24dp0"o
+*http://schemas.android.com/apk/res/androidid@+id/navigation_home"(Ğ„2
+¹…¨øid/navigation_home0.*Ó
+Êitem"c
+*http://schemas.android.com/apk/res/androidtitle@string/news"(áƒ„2
+‚ƒĞøstring/news0"l
+*http://schemas.android.com/apk/res/androidicon@drawable/ic_news"(‚€„2
+™ƒ ødrawable/ic_news0"o
+*http://schemas.android.com/apk/res/androidid@+id/navigation_news"(Ğ„2
+º…¨øid/navigation_news0(*á
+Øitem"m
+*http://schemas.android.com/apk/res/androidtitle@string/al_qur_an"(áƒ„2
+¢€Ğøstring/al_qur_an0"n
+*http://schemas.android.com/apk/res/androidicon@drawable/ic_quran"(‚€„2
+„ ødrawable/ic_quran0"q
+*http://schemas.android.com/apk/res/androidid@+id/navigation_quran"(Ğ„2
+¼…¨øid/navigation_quran0-*Ó
+Êitem"c
+*http://schemas.android.com/apk/res/androidtitle@string/akun"(áƒ„2
+¡€Ğøstring/akun0"l
+*http://schemas.android.com/apk/res/androidicon@drawable/ic_akun"(‚€„2
+™‚ ødrawable/ic_akun0"o
+*http://schemas.android.com/apk/res/androidid@+id/navigation_akun"(Ğ„2
+°…¨øid/navigation_akun0(B

@@ -1,6 +1,8 @@
 package com.badrun.my259firdaus.activity
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,20 +11,8 @@ import android.widget.*
 import com.badrun.my259firdaus.MainActivity
 import com.badrun.my259firdaus.R
 import com.badrun.my259firdaus.api.ApiConfig
-import com.badrun.my259firdaus.helper.Init
 import com.badrun.my259firdaus.helper.SharedPref
-import com.badrun.my259firdaus.model.ResponsModel
 import com.badrun.my259firdaus.model.ResponseUser
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.SignInButton
-import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,27 +24,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var username : EditText
     private lateinit var load : ProgressBar
     private lateinit var pass : EditText
+    private lateinit var lupapass : TextView
     private val context = this
-
-    private val RC_SIGN_IN = 9001
-    private lateinit var auth: FirebaseAuth
-    private lateinit var googleSignInClient: GoogleSignInClient
 
     private lateinit var s : SharedPref
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-
-        googleSignInClient = GoogleSignIn.getClient(this, gso)
-
-        // Initialize Firebase Auth
-        auth = FirebaseAuth.getInstance()
 
         s = SharedPref(this)
 
@@ -69,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
         pass = findViewById(R.id.et_pass_log)
         load = findViewById(R.id.pb)
         buatAkun = findViewById(R.id.btn_regis)
+        lupapass = findViewById(R.id.tv_lupakatasandi)
     }
 
 
@@ -80,6 +58,18 @@ class LoginActivity : AppCompatActivity() {
         buatAkun.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
             finish()
+        }
+
+        lupapass.setOnClickListener {
+            val link = "https://lebet.myfirdaus.com/password/reset"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+            intent.setPackage("com.android.chrome") // Pastikan hanya menggunakan Google Chrome
+            try {
+                startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+                intent.setPackage(null)
+                startActivity(intent)
+            }
         }
     }
 
@@ -121,7 +111,7 @@ class LoginActivity : AppCompatActivity() {
                     load.visibility = View.GONE
 //                    val dialog = this@LoginActivity as Init
 //                    dialog.showCustomAlertDialog(this@LoginActivity,"Tidak dapat terhubung ke server. Silakan coba beberapa saat lagi.")
-                    Log.e("bdr", "onFailure: ${t.message}", )
+                    Log.e("bdr", "onFailure login: ${t.message}", )
                 }
 
             })

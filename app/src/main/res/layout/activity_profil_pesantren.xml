@@ -56,6 +56,16 @@
             <TextView
                 android:padding="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sejarah Singkat"
+                android:textColor="@color/Green"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppinsregular"/>
+
+            <TextView
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/profil_pesantren"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,6 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Visi"
+                android:textColor="@color/Green"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppinsregular"/>
 
@@ -91,6 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Misi"
+                android:textColor="@color/Green"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppinsregular"/>
 
@@ -100,6 +112,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsregular"/>
+
+
         </LinearLayout>
 
 

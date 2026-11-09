@@ -1,0 +1,44 @@
+
+°
+;
+android*http://schemas.android.com/apk/res/android!
+4
+app'http://schemas.android.com/apk/res-auto!!androidx.cardview.widget.CardView"P
+*http://schemas.android.com/apk/res/androidlayout_margin8dp"(ö„2:h"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0þÿÿÿÿÿÿÿÿ"R
+'http://schemas.android.com/apk/res-autocardCornerRadius15dp"(¥ø2:h"e
+*http://schemas.android.com/apk/res/androidid@+id/layoutBuku"(Ð„2
+Æ„¨øid/layoutBuku0*Å
+¼LinearLayout"J
+*http://schemas.android.com/apk/res/androidpadding8dp"(Õ„2:h"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0þÿÿÿÿÿÿÿÿ"R
+*http://schemas.android.com/apk/res/androidorientationvertical"(Ä„2:0*„
+û	ImageView"R
+*http://schemas.android.com/apk/res/android	scaleType
+centerCrop"(‚„2:0"|
+*http://schemas.android.com/apk/res/androidcontentDescription@string/book_cover"(ó„„2
+Å€Ðøstring/book_cover0"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"S
+*http://schemas.android.com/apk/res/androidlayout_height250dp"(õ„2:hô"e
+*http://schemas.android.com/apk/res/androidid@+id/book_cover"(Ð„2
+‰¨øid/book_cover0?*¨
+ŸTextView"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0þÿÿÿÿÿÿÿÿ"L
+*http://schemas.android.com/apk/res/androidtextSize16sp"(•„2:h‚ "v
+*http://schemas.android.com/apk/res/android	textColor@android:color/black"(˜„2
+Œ€˜android:color/black0"S
+*http://schemas.android.com/apk/res/androidlayout_marginTop8dp"(ø„2:h"e
+*http://schemas.android.com/apk/res/androidid@+id/book_title"(Ð„2
+Ž¨øid/book_title0"L
+*http://schemas.android.com/apk/res/android	textStylebold"(—„2:88*”
+‹TextView"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"%(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"%(õ„2:0þÿÿÿÿÿÿÿÿ"L
+*http://schemas.android.com/apk/res/androidtextSize14sp"%(•„2:h‚"‚
+*http://schemas.android.com/apk/res/android	textColor@android:color/darker_gray"%(˜„2$
+"€€˜android:color/darker_gray0"g
+*http://schemas.android.com/apk/res/androidid@+id/book_author"%(Ð„2
+‡¨øid/book_author0%>!

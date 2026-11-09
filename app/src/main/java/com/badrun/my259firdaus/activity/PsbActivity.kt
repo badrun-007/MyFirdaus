@@ -96,6 +96,7 @@ class PsbActivity : AppCompatActivity() {
 
     //santri
     private lateinit var namaSantri:EditText
+    private lateinit var kkSantri : EditText
     private lateinit var nikSantri :EditText
     private lateinit var nisnSantri :EditText
     private lateinit var tempatLahirSantri :EditText
@@ -105,6 +106,7 @@ class PsbActivity : AppCompatActivity() {
     private lateinit var gender : RadioGroup
     private lateinit var sekolahAsal : EditText
     private lateinit var alamatSekolahAsal :EditText
+    private lateinit var pondok : Spinner
 
     //prestasi
     private lateinit var prestasiSantri : EditText
@@ -220,6 +222,7 @@ class PsbActivity : AppCompatActivity() {
 
         // Memuat provinsi dari API
         getProvinsi()
+        initPondok()
         initPendidikan()
         initPekerjaan()
         initCheckBox()
@@ -276,6 +279,7 @@ class PsbActivity : AppCompatActivity() {
                         bool = false
                     }
                     val isValid = isNotEmpty(namaSantri, "Nama Santri tidak boleh kosong") &&
+                            isNotEmptyNik(kkSantri, "KK Santri tidak boleh kosong") &&
                             isNotEmptyNik(nikSantri, "NIK Santri tidak boleh kosong") &&
                             isNotEmpty(nisnSantri, "NISN Santri tidak boleh kosong") &&
                             isNotEmpty(tempatLahirSantri, "Tempat Lahir Santri tidak boleh kosong") &&
@@ -283,6 +287,7 @@ class PsbActivity : AppCompatActivity() {
                             isNotEmpty(anakKe, "Anak Ke tidak boleh kosong") &&
                             isNotEmpty(saudara, "Saudara tidak boleh kosong") &&
                             bool && //validasi gender
+                            isSpinnerValid(pondok, "PONDOK", "Field pondok tidak boleh kosong", this) &&
                             isNotEmpty(alamatSantri, "Alamat Santri tidak boleh kosong") &&
                             isSpinnerValid(spinnerProvinsi, "PROVINSI", "Provinsi Santri tidak boleh kosong", this) &&
                             isSpinnerValid(spinnerKabupaten, "KABUPATEN", "Kabupaten Santri tidak boleh kosong", this) &&
@@ -414,6 +419,9 @@ class PsbActivity : AppCompatActivity() {
         prestasiTanggal.setOnClickListener {
             showDatePickerDialog(prestasiTanggal)
         }
+
+        kkSantri = findViewById(R.id.kk_santri_formulir)
+        pondok = findViewById(R.id.spinner_pondok)
 
         jenisPrestasi = findViewById(R.id.jenis_prestasi)
         prestasiSantri = findViewById(R.id.prestasi_santri_formulir)
@@ -597,12 +605,14 @@ class PsbActivity : AppCompatActivity() {
         val penghasilanIbuServer = penghasilanIbu.text.toString().replace(".", "")
 
         isValid = isNotEmpty(namaSantri, "Nama Santri tidak boleh kosong") &&
+                isNotEmptyNik(kkSantri, "Nomor Kartu Keluarga tidak boleh kosong") &&
                 isNotEmptyNik(nikSantri, "NIK Santri tidak boleh kosong") &&
                 isNotEmpty(nisnSantri, "NISN Santri tidak boleh kosong") &&
                 isNotEmpty(tempatLahirSantri, "Tempat Lahir Santri tidak boleh kosong") &&
                 isNotEmptyEdit(tanggallahirSantri, "Tanggal Lahir Santri tidak boleh kosong",this) &&
                 isNotEmpty(anakKe, "Anak Ke tidak boleh kosong") &&
                 isNotEmpty(saudara, "Saudara tidak boleh kosong") &&
+                isSpinnerValid(pondok, "Pilih Tempat Tinggal", "Field pondok tidak boleh kosong", this) &&
                 isNotEmpty(alamatSantri, "Alamat Santri tidak boleh kosong")&&
                 isSpinnerValid(spinnerProvinsi, "Pilih Provinsi", "Provinsi Santri tidak boleh kosong", this) &&
                 isSpinnerValid(spinnerKabupaten, "Pilih Kabupaten", "Kabupaten Santri tidak boleh kosong", this) &&
@@ -635,6 +645,7 @@ class PsbActivity : AppCompatActivity() {
         if(isValid){
             val idUserRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), user!!.user_id.toString())
             val namaSantriRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), namaSantri.text.toString())
+            val kkSantriRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), kkSantri.text.toString())
             val nikSantriRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), nikSantri.text.toString())
             val nisnSantriRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), nisnSantri.text.toString())
             val tempatLahirSantriRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), tempatLahirSantri.text.toString())
@@ -642,6 +653,7 @@ class PsbActivity : AppCompatActivity() {
             val anakKeRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), anakKe.text.toString())
             val saudaraRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), saudara.text.toString())
             val genderSantriRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), genderSantri)
+            val pondokRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), pondok.selectedItem.toString())
             val alamatSantriRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), alamatSantriText)
             val sekolahAsalRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), sekolahAsal.text.toString())
             val alamatSekolahAsalRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), alamatSekolahAsal.text.toString())
@@ -688,6 +700,7 @@ class PsbActivity : AppCompatActivity() {
             ApiConfig.create(this).setPsb(
                 idUserRequestBody,
                 namaSantriRequestBody,
+                kkSantriRequestBody,
                 nikSantriRequestBody,
                 nisnSantriRequestBody,
                 tempatLahirSantriRequestBody,
@@ -695,6 +708,7 @@ class PsbActivity : AppCompatActivity() {
                 anakKeRequestBody,
                 saudaraRequestBody,
                 genderSantriRequestBody,
+                pondokRequestBody,
                 alamatSantriRequestBody,
                 sekolahAsalRequestBody,
                 alamatSekolahAsalRequestBody,
@@ -1193,6 +1207,15 @@ class PsbActivity : AppCompatActivity() {
         pendidikanAyah.adapter = CustomSpinnerAdapter(this@PsbActivity, listPendidikan, fontPath)
         pendidikanIbu.adapter = CustomSpinnerAdapter(this@PsbActivity, listPendidikan, fontPath)
 
+    }
+
+    private fun initPondok(){
+        val fontPath = "poppinsmedium.ttf"
+        val pondoks = resources.getStringArray(R.array.pondok)
+        val listPondok = mutableListOf("Apakah ikut asrama")
+        listPondok.addAll(pondoks.toList())
+
+        pondok.adapter = CustomSpinnerAdapter(this@PsbActivity, listPondok, fontPath)
     }
 
     private fun initPekerjaan(){

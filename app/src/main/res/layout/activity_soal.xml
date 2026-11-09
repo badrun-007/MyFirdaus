@@ -82,7 +82,7 @@
             android:backgroundTint="@color/Orange"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Kirim Jawaban"
+            android:text="Kirim"
             android:visibility="gone"/> <!-- Sembunyikan awalnya -->
     </LinearLayout>
 

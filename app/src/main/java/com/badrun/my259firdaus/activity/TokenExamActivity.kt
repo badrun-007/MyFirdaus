@@ -2,6 +2,7 @@ package com.badrun.my259firdaus.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -17,12 +18,16 @@ import com.badrun.my259firdaus.api.ApiConfig
 import com.badrun.my259firdaus.model.ResponseSetToken
 import com.badrun.my259firdaus.model.userExam
 import com.bumptech.glide.Glide
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.TimeZone
+import kotlin.math.log
 
 class TokenExamActivity : AppCompatActivity() {
 
@@ -39,6 +44,10 @@ class TokenExamActivity : AppCompatActivity() {
 
     private lateinit var dataUser: userExam
 
+    private lateinit var bannerAd1 : AdView
+    private lateinit var bannerAd2 : AdView
+    private lateinit var bannerAd3 : AdView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_token_exam)
@@ -48,6 +57,18 @@ class TokenExamActivity : AppCompatActivity() {
         dataUser = (intent.getSerializableExtra("data_exam") as? userExam)!!
 
         init()
+
+        bannerAd1 = findViewById(R.id.adBannerView5)
+        val adRequestSatu = AdRequest.Builder().build()
+        bannerAd1.loadAd(adRequestSatu)
+
+        bannerAd2 = findViewById(R.id.adBannerView6)
+        val adRequestDua = AdRequest.Builder().build()
+        bannerAd2.loadAd(adRequestDua)
+
+        bannerAd3 = findViewById(R.id.adBannerView7)
+        val adRequestTiga = AdRequest.Builder().build()
+        bannerAd3.loadAd(adRequestTiga)
 
     }
 
@@ -101,20 +122,6 @@ class TokenExamActivity : AppCompatActivity() {
             tokenExam.requestFocus()
             return
         } else {
-
-            val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-            val endTime: Date? = format.parse(dataUser.end_time)
-
-            // Mendapatkan waktu sekarang
-            val currentTimeMillis = System.currentTimeMillis()
-
-            // Menghitung selisih dalam milidetik
-            val durasi: Long = if (endTime != null) {
-                endTime.time - currentTimeMillis
-            } else {
-                0L // Jika terjadi kesalahan saat parsing, set durasi menjadi 0
-            }
-
             ApiConfig.create(this)
                 .setExam(dataUser.schedule_id,tokenExam.text.toString(),dataUser.id,dataUser.matpel_id,dataUser.class_name,dataUser.transaksi_id)
                 .enqueue(object : Callback<ResponseSetToken>{
@@ -132,6 +139,21 @@ class TokenExamActivity : AppCompatActivity() {
                                 val classLevel = dataUser.class_name.dropLast(1)
                                 i.putExtra("class_id",classLevel)
                                 i.putExtra("end_time",dataUser.end_time)
+
+                                val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                                format.timeZone = TimeZone.getTimeZone("Asia/Jakarta")
+                                val endTime: Date? = format.parse(dataUser.end_time)
+
+                                // Mendapatkan waktu sekarang
+                                val waktuServer: Date? = format.parse(res.waktu)
+
+                                // Menghitung selisih dalam milidetik
+                                val durasi: Long = if (endTime != null) {
+                                    endTime.time - (waktuServer?.time ?: 0)
+                                } else {
+                                    0L // Jika terjadi kesalahan saat parsing, set durasi menjadi 0
+                                }
+
                                 i.putExtra("durasi",durasi)
                                 startActivity(i)
                                 finish()
@@ -153,6 +175,7 @@ class TokenExamActivity : AppCompatActivity() {
 
     private fun calculateDuration(startTime: String, endTime: String): Long {
         val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        inputFormat.timeZone = TimeZone.getTimeZone("Asia/Jakarta")
 
         return try {
             // Parsing string menjadi date

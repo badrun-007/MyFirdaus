@@ -2,6 +2,8 @@ package com.badrun.my259firdaus.activity
 
 
 
+import android.app.ActivityManager
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -48,7 +50,7 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
     private var transaksiId = 0
     private lateinit var timerTextView: TextView
     private var timer: CountDownTimer? = null
-    private var timeLeftInMillis: Long = 0L
+    private var timeLeftInMillis: Long = 900000L
     private lateinit var pb : ProgressBar
     private lateinit var buttonShow : Button
     private lateinit var rvListSoal: RecyclerView
@@ -58,6 +60,11 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
         setContentView(R.layout.activity_soal)
 
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        // Mencegah screenshot
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_SECURE,
+            WindowManager.LayoutParams.FLAG_SECURE
+        )
 
         transaksiId = intent.getIntExtra("transaksi_id", 0)
         val kelasId = intent.getStringExtra("class_id")
@@ -66,6 +73,8 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
         btnNext = findViewById(R.id.btn_next)
         btnSubmit = findViewById(R.id.btn_submit)
         pb = findViewById(R.id.pbs)
+
+        Log.e("BDR", "onCreate soal : $timeLeftInMillis", )
 
         timerTextView = findViewById(R.id.timerTextView)
 
@@ -112,6 +121,8 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
                 val hoursLeft = (millisUntilFinished / (1000 * 60 * 60)).toInt() // Menghitung jam
                 val minutesLeft = (millisUntilFinished % (1000 * 60 * 60) / (1000 * 60)).toInt() // Menghitung menit
                 val secondsLeft = (millisUntilFinished % (1000 * 60) / 1000).toInt() // Menghitung detik
+
+                btnSubmit.isEnabled = millisUntilFinished <= 600_000
 
                 // Format jam:menit:detik
                 timerTextView.text = String.format("%02d:%02d:%02d", hoursLeft, minutesLeft, secondsLeft) // Format: hh:mm:ss
@@ -229,7 +240,7 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
         viewPager.adapter = questionAdapter
 
         // Pasangkan ViewPager ke SoalNoAdapter
-        soalNoAdapter = SoalNoAdapter(questions, viewPager) { soalNo ->
+        soalNoAdapter = SoalNoAdapter(questions, viewPager) { _ ->
             // Tidak perlu memanggil lagi di sini karena sudah dihandle di dalam SoalNoAdapter
         }
 
@@ -276,7 +287,10 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
         }
 
         btnSubmit.setOnClickListener {
-            if (studentAnswers.size < totalSoal) {
+            if (timeLeftInMillis > 600_000) {
+                // Jika waktu masih lebih dari 10 menit
+                Toast.makeText(this, "Jawaban hanya bisa dikirim saat sisa waktu kurang dari 10 menit!", Toast.LENGTH_LONG).show()
+            } else if (studentAnswers.size < totalSoal) {
                 Toast.makeText(this, "Harap jawab semua soal sebelum mengirimkan jawaban!", Toast.LENGTH_LONG).show()
             } else {
                 // Calculate the score
@@ -334,6 +348,39 @@ class SoalActivity : AppCompatActivity(), OnFontSizeChangeListener {
 
     override fun onBackPressed() {
         Toast.makeText(this, "Tidak Boleh Keluar!!!", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+        Log.d("Exam", "User is leaving the app (Home / Recent pressed)")
+        finishAffinity() // Tutup semua activity
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val isAppSatu = isAppInLockTaskMode()
+        if(isAppSatu){
+            Log.e("BDR", "onCreate: Sudah pinned", )
+        } else {
+            finish()
+        }
+    }
+
+    private fun isAppInLockTaskMode(): Boolean {
+        val activityManager = this.getSystemService(ACTIVITY_SERVICE) as ActivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // For SDK version 23 and above.
+            return (activityManager.lockTaskModeState
+                    != ActivityManager.LOCK_TASK_MODE_NONE)
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // When SDK version >= 21. This API is deprecated in 23.
+            return activityManager.isInLockTaskMode
+        }
+
+        return false
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {

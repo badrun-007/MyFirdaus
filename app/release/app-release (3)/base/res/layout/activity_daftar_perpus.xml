@@ -1,0 +1,149 @@
+
+¼H
+;
+android*http://schemas.android.com/apk/res/android	4
+4
+app'http://schemas.android.com/apk/res-auto	4LinearLayout"R
+*http://schemas.android.com/apk/res/androidorientationvertical"	(Ä„2:0"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"	(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightmatch_parent"	(õ„2:0ÿÿÿÿÿÿÿÿÿ"Y
+*http://schemas.android.com/apk/res/androidid	@+id/main"	(Ğ„2
+à„¨øid/main0*¸
+¯/com.google.android.material.appbar.AppBarLayout"K
+*http://schemas.android.com/apk/res/android	elevation0dp"(Àˆ„2:h"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"]
+*http://schemas.android.com/apk/res/androidid@+id/barlay"(Ğ„2
+ü€¨ø	id/barlay0*Š
+!androidx.appcompat.widget.Toolbar"h
+*http://schemas.android.com/apk/res/android
+background@color/Green"(Ô„2
+€˜øcolor/Green0"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"m
+*http://schemas.android.com/apk/res/androidid@+id/toolbarAnggota"(Ğ„2
+ï‡¨øid/toolbarAnggota0*½
+
+´
+LinearLayout"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"R
+*http://schemas.android.com/apk/res/androidorientationvertical"(Ä„2:0"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ*Š
+TextView"V
+*http://schemas.android.com/apk/res/androidlayout_marginBottom1dp""(ú„2:h"Z
+*http://schemas.android.com/apk/res/androidlayout_marginHorizontal9dp""(»Š„2:h"T
+*http://schemas.android.com/apk/res/androidlayout_marginLeft9dp""(÷„2:h"U
+*http://schemas.android.com/apk/res/androidlayout_marginRight9dp""(ù„2:h"`
+*http://schemas.android.com/apk/res/androidlayout_widthwrap_content""(ô„2:0şÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content""(õ„2:0şÿÿÿÿÿÿÿÿ"t
+*http://schemas.android.com/apk/res/android
+fontFamily@font/poppinsextra""(¬‡„2
+ƒ€¤øfont/poppinsextra0"L
+*http://schemas.android.com/apk/res/androidtextSize15sp""(•„2:h‚"g
+*http://schemas.android.com/apk/res/android	textColor@color/white""(˜„2
+ª†˜øcolor/white0"T
+*http://schemas.android.com/apk/res/androidtextDaftar Anggota Perpustakaan(Ï‚„"L
+*http://schemas.android.com/apk/res/android	textStylebold""(—„2:8"762.*‰3
+€3%androidx.core.widget.NestedScrollView"g
+*http://schemas.android.com/apk/res/androidlayout_below@+id/barlay",(…ƒ„2
+ü€¨ø	id/barlay0"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent",(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content",(õ„2:0şÿÿÿÿÿÿÿÿ*¨0
+Ÿ0LinearLayout"Q
+*http://schemas.android.com/apk/res/androidlayout_margin10dp"2(ö„2:h"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"2(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"2(õ„2:0şÿÿÿÿÿÿÿÿ"R
+*http://schemas.android.com/apk/res/androidorientationvertical"2(Ä„2:0*Ô
+ËTextView"R
+*http://schemas.android.com/apk/res/androidtextAlignmentcenter";(±‡„2:0"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent";(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content";(õ„2:0şÿÿÿÿÿÿÿÿ"L
+*http://schemas.android.com/apk/res/androidtextSize15sp";(•„2:h‚"h
+*http://schemas.android.com/apk/res/android
+fontFamily@font/arabic";(¬‡„2
+€€¤øfont/arabic0"g
+*http://schemas.android.com/apk/res/android	textColor@color/Green";(˜„2
+€˜øcolor/Green0"„
+*http://schemas.android.com/apk/res/androidtextKØ¨ÙØ³Ù’Ù…Ù Ù±Ù„Ù„ÙÙ‘Ù°Ù‡Ù Ù±Ù„Ø±ÙÙ‘Ø­Ù’Ù…ÙÙ°Ù†Ù Ù±Ù„Ø±ÙÙ‘Ø­ÙÙŠÙ…Ù(Ï‚„;4*Û
+ÒTextView"R
+*http://schemas.android.com/apk/res/androidtextAlignmentcenter"G(±‡„2:0"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"G(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"G(õ„2:0şÿÿÿÿÿÿÿÿ"L
+*http://schemas.android.com/apk/res/androidtextSize16sp"G(•„2:h‚ "v
+*http://schemas.android.com/apk/res/android
+fontFamily@font/poppinsmedium"G(¬‡„2
+„€¤øfont/poppinsmedium0"g
+*http://schemas.android.com/apk/res/android	textColor@color/Green"G(˜„2
+€˜øcolor/Green0"T
+*http://schemas.android.com/apk/res/androidlayout_marginTop20dp"G(ø„2:h("L
+*http://schemas.android.com/apk/res/android	textStylebold"G(—„2:8"_
+*http://schemas.android.com/apk/res/androidtext&Pendaftaran dan Ketentuan Perpustakaan(Ï‚„"y
+*http://schemas.android.com/apk/res/androidid@+id/judulinfopendaftaran"G(Ğ„2#
+!²„¨øid/judulinfopendaftaran0G;*­
+¤TextView"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"P(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"P(õ„2:0şÿÿÿÿÿÿÿÿ"v
+*http://schemas.android.com/apk/res/android
+fontFamily@font/poppinsmedium"P(¬‡„2
+„€¤øfont/poppinsmedium0"g
+*http://schemas.android.com/apk/res/android	textColor@color/Green"P(˜„2
+€˜øcolor/Green0"T
+*http://schemas.android.com/apk/res/androidlayout_marginTop20dp"P(ø„2:h("N
+*http://schemas.android.com/apk/res/androidtextTata Cara Pendaftaran(Ï‚„"L
+*http://schemas.android.com/apk/res/android	textStylebold"P(—„2:8P;*Á
+¸TextView"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"Y(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"Y(õ„2:0şÿÿÿÿÿÿÿÿ"L
+*http://schemas.android.com/apk/res/androidtextSize15sp"Y(•„2:h‚"x
+*http://schemas.android.com/apk/res/android
+fontFamily@font/poppinsregular"Y(¬‡„2
+…€¤øfont/poppinsregular0"g
+*http://schemas.android.com/apk/res/android	textColor@color/black"Y(˜„2
+¨€˜øcolor/black0"S
+*http://schemas.android.com/apk/res/androidlayout_marginTop5dp"Y(ø„2:h
+"a
+*http://schemas.android.com/apk/res/androidid@+id/tatacara"Y(Ğ„2
+À‡¨øid/tatacara0Y<*¦
+TextView"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"b(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"b(õ„2:0şÿÿÿÿÿÿÿÿ"v
+*http://schemas.android.com/apk/res/android
+fontFamily@font/poppinsmedium"b(¬‡„2
+„€¤øfont/poppinsmedium0"g
+*http://schemas.android.com/apk/res/android	textColor@color/Green"b(˜„2
+€˜øcolor/Green0"T
+*http://schemas.android.com/apk/res/androidlayout_marginTop20dp"b(ø„2:h("G
+*http://schemas.android.com/apk/res/androidtextKetentuan Umum(Ï‚„"L
+*http://schemas.android.com/apk/res/android	textStylebold"b(—„2:8b;*Ë
+ÂTextView"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"k(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"k(õ„2:0şÿÿÿÿÿÿÿÿ"L
+*http://schemas.android.com/apk/res/androidtextSize15sp"k(•„2:h‚"x
+*http://schemas.android.com/apk/res/android
+fontFamily@font/poppinsregular"k(¬‡„2
+…€¤øfont/poppinsregular0"g
+*http://schemas.android.com/apk/res/android	textColor@color/black"k(˜„2
+¨€˜øcolor/black0"S
+*http://schemas.android.com/apk/res/androidlayout_marginTop5dp"k(ø„2:h
+"k
+*http://schemas.android.com/apk/res/androidid@+id/ketentuanUmum"k(Ğ„2
+»„¨øid/ketentuanUmum0k<*ı
+ôCheckBox"`
+*http://schemas.android.com/apk/res/androidlayout_widthwrap_content"r(ô„2:0şÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"r(õ„2:0şÿÿÿÿÿÿÿÿ"T
+*http://schemas.android.com/apk/res/androidlayout_marginTop40dp"r(ø„2:hP"m
+*http://schemas.android.com/apk/res/androidid@+id/chekbox_setuju"r(Ğ„2
+ô¨øid/chekbox_setuju0"^
+*http://schemas.android.com/apk/res/androidtext%Saya Setuju dengan ketentuan yang ada(Ï‚„rG*‚
+ùButton"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"|(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"|(õ„2:0şÿÿÿÿÿÿÿÿ"O
+*http://schemas.android.com/apk/res/androidtextAllCapsfalse"|(Œ‡„2:@ "l
+*http://schemas.android.com/apk/res/androidbackgroundTint@color/Green"|(ëˆ„2
+€˜øcolor/Green0"g
+*http://schemas.android.com/apk/res/android	textColor@color/white"|(˜„2
+ª†˜øcolor/white0"T
+*http://schemas.android.com/apk/res/androidlayout_marginTop10dp"|(ø„2:h"c
+*http://schemas.android.com/apk/res/androidid@+id/btnDaftar"|(Ğ„2
+¨øid/btnDaftar0"G
+*http://schemas.android.com/apk/res/androidtextDaftar Anggota(Ï‚„|02,,.	4

@@ -117,7 +117,7 @@
             android:textColor="@color/Green"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3. Ijazah Terakhir /\nSurat Kelulusan"
+            android:text="3. Ijazah Terakhir"
             android:fontFamily="@font/poppinsmedium"/>
 
         <Button
@@ -141,6 +141,166 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="20dp"
         android:orientation="horizontal"
+        android:id="@+id/field_kelulusan">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Surat Kelulusan"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_kelulusan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File Surat Kelulusan" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_nisn">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. Kartu NISN          "
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_nisn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File Kartu NISN" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_perjanjian">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6. Surat Perjanjian"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_perjanjian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File Surat Perjanjian" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_ktp_ayah">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7. KTP Ayah"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_ktp_ayah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File KTP Ayah" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_ktp_ibu">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8. KTP Ibu"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_ktp_ibu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File KTP Ibu" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
         android:id="@+id/field_kip">
 
         <TextView
@@ -149,7 +309,7 @@
             android:textColor="@color/Green"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4. KIP (Jika Ada)"
+            android:text="9. KIP (Jika Ada)"
             android:fontFamily="@font/poppinsmedium"/>
 
         <Button
@@ -163,6 +323,102 @@
             android:drawablePadding="10dp"
             android:drawableTint="@color/Orange"
             android:text="Pilih File Kartu Indonesia Pintar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_skkb">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10. SKKB (Jika Ada)"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_skkb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File SKKB" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_kks">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11. KKS (Jika Ada)"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_kks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File KKS" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/garis_empat"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/field_PKH">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/Green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12. PKH (Jika Ada)"
+            android:fontFamily="@font/poppinsmedium"/>
+
+        <Button
+            android:backgroundTint="@color/Green"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:id="@+id/button_choose_pkh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/baseline_add_to_photos_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/Orange"
+            android:text="Pilih File PKH" />
     </LinearLayout>
 
 

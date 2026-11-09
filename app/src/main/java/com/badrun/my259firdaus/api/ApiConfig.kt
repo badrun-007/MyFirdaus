@@ -3,11 +3,15 @@ package com.badrun.my259firdaus.api
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.webkit.CookieManager
 import com.badrun.my259firdaus.BuildConfig
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.Cache
+import okhttp3.CipherSuite
+import okhttp3.ConnectionSpec
 import okhttp3.OkHttpClient
+import okhttp3.TlsVersion
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -45,9 +49,11 @@ object ApiConfig {
 
         interceptor.level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
 
+        val authToken = "zOa8I2XsE4fl0BkpOoVoR0yyzvZ1EpTLl0H6cYjZac3393fe"
+
         return OkHttpClient.Builder()
             .cache(cache)
-            .addInterceptor(interceptor)
+            .addInterceptor (interceptor)
             .connectTimeout(60, TimeUnit.SECONDS)
             .readTimeout(60L, TimeUnit.SECONDS)
             .writeTimeout(60L, TimeUnit.SECONDS)

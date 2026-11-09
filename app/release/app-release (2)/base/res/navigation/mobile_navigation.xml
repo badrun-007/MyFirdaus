@@ -1,0 +1,29 @@
+
+í
+;
+android*http://schemas.android.com/apk/res/android1
+4
+app'http://schemas.android.com/apk/res-auto1
+navigation"{
+'http://schemas.android.com/apk/res-autostartDestination@+id/navigation_home"(ˆø2
+¹…¨øid/navigation_home0"s
+*http://schemas.android.com/apk/res/androidid@+id/mobile_navigation"(Ğ„2 
+……¨øid/mobile_navigation0*ß
+Öfragment"h
+*http://schemas.android.com/apk/res/androidname/com.badrun.my259firdaus.ui.ui.home.HomeFragment(ƒ€„"o
+*http://schemas.android.com/apk/res/androidid@+id/navigation_home"(Ğ„2
+¹…¨øid/navigation_home0"o
+*http://schemas.android.com/apk/res/androidlabel@string/title_home"(€„2
+£„Ğøstring/title_home00*ı
+ôfragment"r
+*http://schemas.android.com/apk/res/androidname9com.badrun.my259firdaus.ui.ui.dashboard.DashboardFragment(ƒ€„"y
+*http://schemas.android.com/apk/res/androidid@+id/navigation_dashboard"(Ğ„2#
+!·…¨øid/navigation_dashboard0"y
+*http://schemas.android.com/apk/res/androidlabel@string/title_dashboard"(€„2"
+ ¢„Ğøstring/title_dashboard05*—
+fragment"z
+*http://schemas.android.com/apk/res/androidnameAcom.badrun.my259firdaus.ui.ui.notifications.NotificationsFragment(ƒ€„"
+*http://schemas.android.com/apk/res/androidid@+id/navigation_notifications"(Ğ„2'
+%»…¨øid/navigation_notifications0"
+*http://schemas.android.com/apk/res/androidlabel@string/title_notifications"(€„2&
+$¤„Ğøstring/title_notifications091

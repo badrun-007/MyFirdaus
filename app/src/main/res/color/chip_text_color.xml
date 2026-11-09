@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Teks saat aktif -->
+    <item android:state_checked="true" android:color="@android:color/white"/>
+    <!-- Teks saat tidak aktif -->
+    <item android:color="@android:color/black"/>
+</selector>

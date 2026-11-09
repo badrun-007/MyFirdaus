@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- Bagian Akademik -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Akademik"
+                android:textStyle="bold"
+                android:textColor="@color/Green"
+                android:fontFamily="@font/poppinsextra"
+                android:layout_marginBottom="20dp"/>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_exam_mts"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/icon_exam"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Ujian \nSekolah"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardDaring"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_daring_akademik"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:src="@drawable/icon_daring"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Belajar \nDaring"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_jadwal_pelajaran"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/icon_jadwal_matapelajaran"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Jadwal \nPelajaran"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cardLapAkademik"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_laporan_akademik"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="43dp"
+                                    android:layout_height="43dp"
+                                    android:src="@drawable/icon_laporan_akademik"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Laporan \nAkademik"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/card_test_ppdb"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_test_ppdb"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/icon_test"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Test \nPPDB"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+            <!-- Akhir Bagian Akademik -->
+
+            <!-- Bagian Pembayaran -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pembayaran"
+                android:textStyle="bold"
+                android:textColor="@color/Green"
+                android:fontFamily="@font/poppinsextra"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_transaksi_card"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/icon_history"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/text_btnIcon4"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Transaksi \n"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_biaya_akademik"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/icon_biaya_akademik"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Biaya \nAkademik"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+            <!-- Akhir Bagian Pembayaran -->
+
+            <!-- Bagian Lain-lain -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lain-Lain"
+                android:textStyle="bold"
+                android:textColor="@color/Green"
+                android:fontFamily="@font/poppinsextra"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_quiz_pesantren"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/icon_quiz"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Quiz \nPesantren"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_stream_lensa"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/icon_lensa_firdaus"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Lensa \nFirdaus"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_ruang_alumni"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/icon_alumni"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Ruang \nAlumni"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+            <!-- Akhir Bagian Lain-lain -->
+
+            <!-- Bagian Development -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pengembang Aplikasi"
+                android:textStyle="bold"
+                android:textColor="@color/Green"
+                android:fontFamily="@font/poppinsextra"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_tentang_pengembang"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/developper"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Tentang \nKami"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_support_pengembang"
+                                android:layout_marginBottom="10dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                app:cardCornerRadius="15dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onButtonClick">
+
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/icon_ads"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:singleLine="false"
+                                android:maxLines="2"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Support \nPengembang"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+            <!-- Akhir Bagian Development -->
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>

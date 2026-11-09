@@ -54,6 +54,7 @@ class AdapterNews(val activity: Activity, val data:ArrayList<NewsEntity>): Recyc
 
             val str = Gson().toJson(data[position],NewsEntity::class.java)
             i.putExtra("news",str)
+            i.putExtra("newsId", data[position].id)
             activity.startActivity(i)
         }
 

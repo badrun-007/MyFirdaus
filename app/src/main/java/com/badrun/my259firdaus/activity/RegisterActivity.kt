@@ -2,27 +2,24 @@ package com.badrun.my259firdaus.activity
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
+import android.text.Spannable
+import android.text.SpannableString
 import android.text.TextWatcher
+import android.text.style.StyleSpan
 import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import com.badrun.my259firdaus.R
 import com.badrun.my259firdaus.api.ApiConfig
 import com.badrun.my259firdaus.model.ResponsModel
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.ActionCodeSettings
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
-import com.google.firebase.messaging.FirebaseMessaging
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -128,7 +125,7 @@ class RegisterActivity : AppCompatActivity() {
                             }
                             1 -> {
                                 val i = Intent(this@RegisterActivity, LoginActivity::class.java)
-                                Toast.makeText(this@RegisterActivity, "Silahkan Check Email di Spam atau di Kotak Masuk", Toast.LENGTH_LONG).show()
+                                showVerificationDialog(email.text.toString())
                                 startActivity(i)
                                 finish()
                             }
@@ -144,6 +141,71 @@ class RegisterActivity : AppCompatActivity() {
                     Log.e("RegisterActivity", "${t.message}")
                 }
             })
+        }
+    }
+
+
+    private fun showVerificationDialog(userEmail: String) {
+        val view = layoutInflater.inflate(R.layout.dialog_verifikasi, null)
+
+        val tvMessage = view.findViewById<TextView>(R.id.tvMessage)
+        val btnEmail = view.findViewById<Button>(R.id.btnEmail)
+        val btnNanti = view.findViewById<Button>(R.id.btnNanti)
+
+        val message = """
+    Akun Anda berhasil dibuat 🎉
+    
+    Kami telah mengirimkan link verifikasi ke:
+    
+    $userEmail
+    
+    Silakan cek email Anda (Inbox / Spam / Promosi).
+    
+    Link verifikasi berlaku selama 10 menit.
+""".trimIndent()
+
+        val spannable = SpannableString(message)
+
+// Cari posisi email
+        val start = message.indexOf(userEmail)
+        val end = start + userEmail.length
+
+// Set bold
+        spannable.setSpan(
+            StyleSpan(Typeface.BOLD),
+            start,
+            end,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        tvMessage.text = spannable
+
+        val dialog = AlertDialog.Builder(this)
+            .setView(view)
+            .setCancelable(false)
+            .create()
+
+        btnEmail.setOnClickListener {
+            openEmailApp()
+            dialog.dismiss()
+        }
+
+        btnNanti.setOnClickListener {
+            dialog.dismiss()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+
+        dialog.show()
+    }
+
+    private fun openEmailApp() {
+        try {
+            val intent = Intent(Intent.ACTION_MAIN)
+            intent.addCategory(Intent.CATEGORY_APP_EMAIL)
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(this, "Aplikasi email tidak ditemukan", Toast.LENGTH_SHORT).show()
         }
     }
 

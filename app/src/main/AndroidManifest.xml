@@ -10,16 +10,15 @@
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.MANAGE_DEVICE_POLICY_WINDOWS" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
     <application
         android:name=".helper.MyApp"
@@ -37,6 +36,44 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup"
         tools:targetApi="34">
+        <activity
+            android:name=".activity.daring.AktifitasGuruActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.daring.ListJawabanSantriActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.daring.BankJawabanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.daring.KirimTugasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.daring.MateriSantriActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.daring.DaringSantriActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.daring.InputMateriActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.daring.MateriActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.daring.DaringGuruActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TentangKamiActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3416538992401399~2293658282" />
+
+        <activity
+            android:name=".activity.IklanActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.TokenExamActivity"
             android:exported="false" />
@@ -62,6 +99,7 @@
             android:exported="true"
             android:launchMode="singleTask"
             android:resizeableActivity="false"
+            android:screenOrientation="portrait"
             android:supportsPictureInPicture="false" />
         <activity
             android:name=".activity.ExamActivity"
@@ -227,7 +265,18 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="open"
+                    android:scheme="my259firdaus" />
+            </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

@@ -120,6 +120,24 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsregular"/>
 
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dokumen Persyaratan"
+                android:textStyle="bold"
+                android:textColor="@color/Green"
+                android:fontFamily="@font/poppinsmedium"/>
+
+            <TextView
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/dokumenpersyaratan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsregular"/>
+
             <Button
                 android:textAllCaps="false"
                 android:textColor="@color/white"

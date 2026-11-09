@@ -1,0 +1,30 @@
+
+Ô
+;
+android*http://schemas.android.com/apk/res/android$LinearLayout"v
+*http://schemas.android.com/apk/res/android
+background@drawable/bg_dialog"(Ô„2
+ä ødrawable/bg_dialog0"K
+*http://schemas.android.com/apk/res/androidpadding16dp"(Õ„2:h "`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"R
+*http://schemas.android.com/apk/res/androidorientationvertical"(Ä„2:0*ß
+ÖTextView"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"L
+*http://schemas.android.com/apk/res/androidtextSize18sp"(•„2:h‚$"i
+*http://schemas.android.com/apk/res/androidid@+id/tvNamaSantri"(Ğ„2
+“ˆ¨øid/tvNamaSantri0"L
+*http://schemas.android.com/apk/res/android	textStylebold"(—„2:8$*Ù
+ĞScom.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView"M
+*http://schemas.android.com/apk/res/android
+visibilitygone"(Ü„2:0"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"S
+*http://schemas.android.com/apk/res/androidlayout_height200dp"(õ„2:h"s
+*http://schemas.android.com/apk/res/androidid@+id/youtubePlayerView"(Ğ„2 
+Øˆ¨øid/youtubePlayerView0%*ê
+á)androidx.recyclerview.widget.RecyclerView"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"o
+*http://schemas.android.com/apk/res/androidid@+id/rvJawabanSantri"(Ğ„2
+¶†¨øid/rvJawabanSantri0/$

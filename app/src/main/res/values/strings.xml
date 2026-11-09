@@ -35,6 +35,7 @@
     <string name="photo_news_firdaus">Photo News Firdaus</string>
     <string name="walashr">”Demi waktu, sungguh, manusia berada dalam kerugian.”</string>
     <string name="selengkapnya">Selengkapnya</string>
+    <string name="dukungads">Dukung tim pengembangan aplikasi kami agar dapat terus memberikan manfaat yang lebih luas. Anda dapat berkontribusi dengan menonton iklan sebagai bentuk support tanpa perlu donasi uang. Cukup klik tombol di bawah ini, semoga menjadi amal kebaikan untuk kita semua dan setiap kebaikan yang dilakukan membawa berkah bagi kita semua. \nTerima kasih atas dukungan Anda! Jazakumullah khoiran katsiron \n\nSalam Hangat, Tim Pengembang (っ˘ω˘ς)❤</string>
     <string name="artikel">Artikel</string>
     <string name="lainnya">Lainnya</string>
     <string name="bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</string>
@@ -42,6 +43,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="channel_name">PPI 259 Firdaus</string>
     <string name="channel_description">Notifikasi</string>
+    <string-array name="pondok">
+        <item>Iya, Asrama</item>
+        <item>Tidak,Dengan Keluarga</item>
+    </string-array>
     <string-array name="pendidikan">
         <item>TIDAK / BELUM SEKOLAH</item>
         <item>BELUM TAMAT SD/SEDERAJAT</item>
@@ -202,13 +207,16 @@
     <string name="infoPendaftaran">Alhamdulillah, Mts Pesantren Persatuan Islam 259 Firdaus Pangalengan kembali membuka "Pendaftaran Calon Santri Baru".\nBerikut kami sampaikan informasi Pendaftaran Calon Santri Baru Tahun Ajaran
     </string>
 
-    <string name="tatacara">1. Siapkan Pas Foto terbaru Calon Santri berlatar biru berformat (JPG/PNG/JPEG)\n2. Siapkan File KK, Akta Kelahiran, Ijazah Terakhir, KIP (jika ada) berformat PDF\n3. Klik Formulir dibawah, lalu isi formulir dan kirim formulir\n4. Lalu akan pindah ke halaman pembayaran\n5. Pilih metode pembayaran, lalu bayar\n6. Setelah membayar nanti di menu transaksi klik transaksi yang sudah dibayar dan akan otomatis menggenerate QR-Code\n7. QR-Code tersebut digunakan saat pelaksanaan tes calon santri baru\n8. Tunggu informasi selanjutnya\n
+    <string name="tatacara">1. Siapkan Pas Foto terbaru Calon Santri berlatar biru berformat (JPG/PNG/JPEG)\n2. Klik Formulir dibawah, lalu isi formulir dan kirim formulir\n3. Lalu akan pindah ke halaman pembayaran\n4. Pilih metode pembayaran, lalu bayar\n5. Setelah membayar nanti di menu transaksi klik transaksi yang sudah dibayar dan akan otomatis menggenerate QR-Code\n6. QR-Code tersebut digunakan saat pelaksanaan tes calon santri baru\n7. Tunggu informasi selanjutnya\n
     </string>
 
     <string name="materites">1. Baca Tulis Al-Quran\n2. Tes kemampuan mengahafal ayat Al-Quran\n3. Pengetahuan umum\n4. Interview
     </string>
 
-    <string name="agendakegiatan">1. Pendaftaran Online\n2. Tes Kemampuan Anak \n3. Daftar Ulang\n
+    <string name="agendakegiatan">1. Pendaftaran \n2. Tes Kemampuan Anak \n3. Daftar Ulang\n
+    </string>
+
+    <string name="dokpersyaratan">Dokumen Persyaratan ini dipersiapkan untuk daftar ulang, Jika pendaftaran ulang dilakukan secara offline maka dokumen tersebut harus di Fotokopi, jika dilakukan online maka dokumen tersebut di scan dan dijadikan file pdf \n1. KK \n2. Ijazah \n3. Surat Kelulusan \n4. Kartu NISN \n5. Akta Kelahiran \n6. Surat Keterangan Kelakuan Baik (Opsional) \n7. Pas Foto 2x3/3x4 (Jika Offline) \n8. KTP Ayah dan Ibu \n9. KIP (Opsional) \n10. Kartu Keluarga Sejahtera (Opsional) \n11. Program Keluarga Harapan (Opsional) \n
     </string>
     <string name="informasi_pendaftaran">Informasi Pendaftaran</string>
     <string name="testing">Testing \nCalon Santri</string>

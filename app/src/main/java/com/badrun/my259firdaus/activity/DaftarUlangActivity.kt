@@ -37,6 +37,14 @@ class DaftarUlangActivity : AppCompatActivity() {
         private const val PICK_PDF_REQUEST_AKTE = 1002
         private const val PICK_PDF_REQUEST_IJAZAH = 1003
         private const val PICK_PDF_REQUEST_KIP = 1004
+        private const val PICK_PDF_REQUEST_PERJANJIAN = 1005
+        private const val PICK_PDF_REQUEST_KELULUSAN = 1006
+        private const val PICK_PDF_REQUEST_NISN = 1007
+        private const val PICK_PDF_REQUEST_KTP_AYAH = 1008
+        private const val PICK_PDF_REQUEST_KTP_IBU = 1009
+        private const val PICK_PDF_REQUEST_KKB = 1010
+        private const val PICK_PDF_REQUEST_KKS = 1011
+        private const val PICK_PDF_REQUEST_PKH = 1012
     }
 
     private var loadingDialog: AlertDialog? = null
@@ -46,12 +54,28 @@ class DaftarUlangActivity : AppCompatActivity() {
     private lateinit var fileAkte: File
     private lateinit var fileIjazah: File
     private lateinit var fileKip: File
+    private lateinit var filePerjanjian : File
+    private lateinit var fileKelulusan : File
+    private lateinit var fileNisn : File
+    private lateinit var fileKtpAyah : File
+    private lateinit var fileKtpIbu : File
+    private lateinit var fileKkb : File
+    private lateinit var fileKks : File
+    private lateinit var filePkh : File
 
     private lateinit var buttonChooseKK : Button
     private lateinit var buttonChooseAkte : Button
     private lateinit var buttonChooseIjazah : Button
     private lateinit var buttonChooseKip : Button
     private lateinit var buttonKirim : Button
+    private lateinit var buttonChoosePerjanjian : Button
+    private lateinit var buttonChooseKelulusan : Button
+    private lateinit var buttonChooseNisn : Button
+    private lateinit var buttonChooseKtpAyah : Button
+    private lateinit var buttonChooseKtpIbu : Button
+    private lateinit var buttonChooseKkb : Button
+    private lateinit var buttonChooseKks : Button
+    private lateinit var buttonChoosePkh : Button
 
     private lateinit var s:SharedPref
 
@@ -65,12 +89,28 @@ class DaftarUlangActivity : AppCompatActivity() {
         fileAkte = createEmptyFile("tidakadaFile")
         fileIjazah = createEmptyFile("tidakadaFile")
         fileKip = createEmptyFile("tidakadaFile")
+        filePerjanjian = createEmptyFile("tidakadaFile")
+        fileKelulusan = createEmptyFile("tidakadaFile")
+        fileNisn = createEmptyFile("tidakadaFile")
+        fileKtpAyah = createEmptyFile("tidakadaFile")
+        fileKtpIbu = createEmptyFile("tidakadaFile")
+        fileKkb = createEmptyFile("tidakadaFile")
+        fileKks = createEmptyFile("tidakadaFile")
+        filePkh = createEmptyFile("tidakadaFile")
 
         buttonChooseKK = findViewById(R.id.button_choose_kk)
         buttonChooseAkte = findViewById(R.id.button_choose_akte)
         buttonChooseIjazah = findViewById(R.id.button_choose_ijazah)
         buttonChooseKip = findViewById(R.id.button_choose_kip)
+        buttonChoosePerjanjian = findViewById(R.id.button_choose_perjanjian)
         buttonKirim = findViewById(R.id.button_kirim)
+        buttonChooseKelulusan = findViewById(R.id.button_choose_kelulusan)
+        buttonChooseNisn = findViewById(R.id.button_choose_nisn)
+        buttonChooseKtpAyah = findViewById(R.id.button_choose_ktp_ayah)
+        buttonChooseKtpIbu = findViewById(R.id.button_choose_ktp_ibu)
+        buttonChooseKkb = findViewById(R.id.button_choose_skkb)
+        buttonChooseKks = findViewById(R.id.button_choose_kks)
+        buttonChoosePkh = findViewById(R.id.button_choose_pkh)
 
         initButtonFile()
 
@@ -98,7 +138,14 @@ class DaftarUlangActivity : AppCompatActivity() {
 
         val isValid: Boolean = isFileValid(fileKK, "File KK tidak boleh kosong", this) &&
                 isFileValid(fileAkte, "File Akte tidak boleh kosong", this) &&
-                isFileValid(fileIjazah, "File Ijazah tidak boleh kosong", this) //Gantri SKL
+                isFileValid(fileIjazah, "File Ijazah tidak boleh kosong", this) &&
+                isFileValid(filePerjanjian, "File Surat Perjanjian tidak boleh kosong", this) &&
+                isFileValid(fileKelulusan, "File Surat Kelulusan tidak boleh kosong", this) &&
+                isFileValid(fileNisn, "File Kartu NISN tidak boleh kosong", this) &&
+                isFileValid(fileKtpAyah, "File KTP Ayah tidak boleh kosong", this) &&
+                isFileValid(fileKtpIbu, "File KTP Ibu tidak boleh kosong", this)
+
+        Log.e("BDR", "sendData Daftar Ulang ID : ${user!!.user_id}", )
 
         if (isValid){
             val idUserRequestBody = RequestBody.create("text/plain".toMediaTypeOrNull(), user!!.user_id.toString())
@@ -110,8 +157,39 @@ class DaftarUlangActivity : AppCompatActivity() {
             val partFileIjazah = MultipartBody.Part.createFormData("ijazah", fileIjazah.name, fileIjazahRequestBody)
             val fileKipRequestBody = RequestBody.create("application/pdf".toMediaTypeOrNull(), fileKip)
             val partFileKip = MultipartBody.Part.createFormData("kip", fileKip.name, fileKipRequestBody)
+            val filePerjanjianRequestBody = RequestBody.create("application/pdf".toMediaTypeOrNull(), filePerjanjian)
+            val partFilePerjanjian = MultipartBody.Part.createFormData("perjanjian", filePerjanjian.name, filePerjanjianRequestBody)
+            val fileKelulusanRequestBody = RequestBody.create("application/pdf".toMediaTypeOrNull(), fileKelulusan)
+            val partFileKelulusan = MultipartBody.Part.createFormData("kelulusan", fileKelulusan.name, fileKelulusanRequestBody)
+            val fileNisnRequestBody = RequestBody.create("application/pdf".toMediaTypeOrNull(), fileNisn)
+            val partFileNisn = MultipartBody.Part.createFormData("nisn", fileNisn.name, fileNisnRequestBody)
+            val fileKtpAyahRequestBody = RequestBody.create("application/pdf".toMediaTypeOrNull(), fileKtpAyah)
+            val partFileKtpAyah = MultipartBody.Part.createFormData("ktpayah", fileKtpAyah.name, fileKtpAyahRequestBody)
+            val fileKtpIbuRequestBody = RequestBody.create("application/pdf".toMediaTypeOrNull(), fileKtpIbu)
+            val partFileKtpIbu = MultipartBody.Part.createFormData("ktpibu", fileKtpIbu.name, fileKtpIbuRequestBody)
+            val fileKkbRequestBody = RequestBody.create("application/pdf".toMediaTypeOrNull(), fileKkb)
+            val partFileKkb = MultipartBody.Part.createFormData("kkb", fileKkb.name, fileKkbRequestBody)
+            val fileKksRequestBody = RequestBody.create("application/pdf".toMediaTypeOrNull(), fileKks)
+            val partFileKks = MultipartBody.Part.createFormData("kks", fileKks.name, fileKksRequestBody)
+            val filePkhRequestBody = RequestBody.create("application/pdf".toMediaTypeOrNull(), filePkh)
+            val partFilePkh = MultipartBody.Part.createFormData("pkh", filePkh.name, filePkhRequestBody)
+
             showLoadingDialog()
-            ApiConfig.create(this).setDaftarUlang(idUserRequestBody,partFileKK, partFileAkte,partFileIjazah,partFileKip).enqueue(object: Callback<ResponseDaftarUlang>{
+            ApiConfig.create(this).setDaftarUlang(
+                idUserRequestBody,
+                partFileKK,
+                partFileAkte,
+                partFileIjazah,
+                partFileKip,
+                partFilePerjanjian,
+                partFileKelulusan,
+                partFileNisn,
+                partFileKtpAyah,
+                partFileKtpIbu,
+                partFileKkb,
+                partFileKks,
+                partFilePkh)
+                .enqueue(object: Callback<ResponseDaftarUlang>{
                 override fun onResponse(call: Call<ResponseDaftarUlang>, response: Response<ResponseDaftarUlang>) {
                     if (response.isSuccessful){
                         hideLoadingDialog()
@@ -211,6 +289,38 @@ class DaftarUlangActivity : AppCompatActivity() {
                     buttonChooseKip.text = namaFile
                     fileKip = saveFileToInternalStorage(uri, "kip")
                 }
+                PICK_PDF_REQUEST_PERJANJIAN -> {
+                    buttonChoosePerjanjian.text = namaFile
+                    filePerjanjian = saveFileToInternalStorage(uri, "perjanjian")
+                }
+                PICK_PDF_REQUEST_KELULUSAN -> {
+                    buttonChooseKelulusan.text = namaFile
+                    fileKelulusan = saveFileToInternalStorage(uri, "kelulusan")
+                }
+                PICK_PDF_REQUEST_NISN -> {
+                    buttonChooseNisn.text = namaFile
+                    fileNisn = saveFileToInternalStorage(uri, "nisn")
+                }
+                PICK_PDF_REQUEST_KTP_AYAH -> {
+                    buttonChooseKtpAyah.text = namaFile
+                    fileKtpAyah = saveFileToInternalStorage(uri, "ktpayah")
+                }
+                PICK_PDF_REQUEST_KTP_IBU -> {
+                    buttonChooseKtpIbu.text = namaFile
+                    fileKtpIbu = saveFileToInternalStorage(uri, "ktpibu")
+                }
+                PICK_PDF_REQUEST_KKB -> {
+                    buttonChooseKkb.text = namaFile
+                    fileKkb = saveFileToInternalStorage(uri, "kkb")
+                }
+                PICK_PDF_REQUEST_KKS -> {
+                    buttonChooseKks.text = namaFile
+                    fileKks = saveFileToInternalStorage(uri, "kks")
+                }
+                PICK_PDF_REQUEST_PKH -> {
+                    buttonChoosePkh.text = namaFile
+                    filePkh = saveFileToInternalStorage(uri, "pkh")
+                }
             }
         }
     }
@@ -279,6 +389,54 @@ class DaftarUlangActivity : AppCompatActivity() {
             intent.type = "application/pdf" // Menentukan tipe file yang dapat dipilih
             intent.addCategory(Intent.CATEGORY_OPENABLE)
             startActivityForResult(Intent.createChooser(intent, "Pilih kip Santri"), PICK_PDF_REQUEST_KIP)
+        }
+        buttonChoosePerjanjian.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "application/pdf"
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            startActivityForResult(Intent.createChooser(intent, "Pilih Surat Perjanjian"), PICK_PDF_REQUEST_PERJANJIAN)
+        }
+        buttonChooseKelulusan.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "application/pdf"
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            startActivityForResult(Intent.createChooser(intent, "Pilih Surat Kelulusan"), PICK_PDF_REQUEST_KELULUSAN)
+        }
+        buttonChooseNisn.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "application/pdf"
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            startActivityForResult(Intent.createChooser(intent, "Pilih Kartu NISN"), PICK_PDF_REQUEST_NISN)
+        }
+        buttonChooseKtpAyah.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "application/pdf"
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            startActivityForResult(Intent.createChooser(intent, "Pilih KTP Ayah"), PICK_PDF_REQUEST_KTP_AYAH)
+        }
+        buttonChooseKtpIbu.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "application/pdf"
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            startActivityForResult(Intent.createChooser(intent, "Pilih KTP Ibu"), PICK_PDF_REQUEST_KTP_IBU)
+        }
+        buttonChooseKkb.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "application/pdf"
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            startActivityForResult(Intent.createChooser(intent, "Pilih Surat Keterangan Kelakuan Baik"), PICK_PDF_REQUEST_KKB)
+        }
+        buttonChooseKks.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "application/pdf"
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            startActivityForResult(Intent.createChooser(intent, "Pilih Kartu Keluarga Sejahtera"), PICK_PDF_REQUEST_KKS)
+        }
+        buttonChoosePkh.setOnClickListener {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "application/pdf"
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            startActivityForResult(Intent.createChooser(intent, "Pilih Kartu Program Keluarga Harapan"), PICK_PDF_REQUEST_PKH)
         }
 
     }

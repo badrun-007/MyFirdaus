@@ -42,6 +42,7 @@ class PendaftaranActivity : AppCompatActivity() {
     private lateinit var tatacara : TextView
     private lateinit var materiTest : TextView
     private lateinit var agendaKegiatan : TextView
+    private lateinit var persyaratan : TextView
     private lateinit var buttonBrosur : Button
     private lateinit var buttonFormulir : Button
     private lateinit var load : ProgressBar
@@ -64,6 +65,7 @@ class PendaftaranActivity : AppCompatActivity() {
         buttonBrosur = findViewById(R.id.btnbrosur)
         buttonFormulir = findViewById(R.id.btnformulir)
         load = findViewById(R.id.pb_pendaftaran)
+        persyaratan = findViewById(R.id.dokumenpersyaratan)
 
         getInfoPendaftaran()
         initBtnBack()
@@ -161,6 +163,7 @@ class PendaftaranActivity : AppCompatActivity() {
         tatacara.text = getString(R.string.tatacara)
         materiTest.text = getString(R.string.materites)
         agendaKegiatan.text = getString(R.string.agendakegiatan)
+        persyaratan.text = getString(R.string.dokpersyaratan)
     }
 
     private fun startDownload() {

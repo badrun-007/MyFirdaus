@@ -1,0 +1,13 @@
+
+”
+;
+android*http://schemas.android.com/apk/res/android	QTextView"¸
+*http://schemas.android.com/apk/res/androidtextAppearance2@style/TextAppearance.MaterialComponents.Subtitle1"	(´€„2=
+;„Ôø1style/TextAppearance.MaterialComponents.Subtitle10"K
+*http://schemas.android.com/apk/res/androidpadding20dp"	(Õ„2:h("K
+*http://schemas.android.com/apk/res/android	ellipsizeend"	(«„2:0"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"	(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"	(õ„2:0şÿÿÿÿÿÿÿÿ"H
+*http://schemas.android.com/apk/res/androidmaxLines1"	(Ó‚„2:0"g
+*http://schemas.android.com/apk/res/androidid@+id/tv_dropdown"	(Ğ„2
+ ˆ¨øid/tv_dropdown0	Q

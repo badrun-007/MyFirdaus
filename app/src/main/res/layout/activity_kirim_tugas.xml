@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    tools:context=".activity.daring.KirimTugasActivity">
+
+    <!-- Judul Tugas -->
+
+    <!-- EditText untuk Jawaban Teks -->
+    <EditText
+        android:id="@+id/editTextJawaban"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Link Video Youtube Jika ada"
+        android:inputType="textMultiLine"
+        android:gravity="top|start"
+        android:padding="10dp"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppinsregular"
+        android:scrollbars="vertical"/>
+
+    <!-- Tombol Pilih Foto -->
+    <Button
+        android:id="@+id/btnPilihFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pilih Foto"
+        android:textColor="@android:color/white"
+        android:background="@color/Orange"
+        android:layout_marginTop="16dp"/>
+
+    <ProgressBar
+        android:id="@+id/pb"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminateDrawable="@drawable/c_prog_bar"
+        android:layout_centerInParent="true"/>
+
+    <!-- ImageView untuk Menampilkan Foto yang Dipilih -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvImages"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" />
+
+    <!-- Tombol Kirim Jawaban -->
+    <Button
+        android:id="@+id/btnKirimJawaban"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kirim Jawaban"
+        android:textColor="@android:color/white"
+        android:background="@color/Orange"
+        android:layout_marginTop="24dp"/>
+</LinearLayout>

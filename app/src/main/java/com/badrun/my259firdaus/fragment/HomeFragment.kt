@@ -11,24 +11,32 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.view.menu.MenuAdapter
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.badrun.my259firdaus.R
 import com.badrun.my259firdaus.activity.ExamActivity
+import com.badrun.my259firdaus.activity.IklanActivity
 import com.badrun.my259firdaus.activity.KalenderActivity
 import com.badrun.my259firdaus.activity.NotificationActivity
 import com.badrun.my259firdaus.activity.PembayaranDetailActivity
@@ -36,6 +44,9 @@ import com.badrun.my259firdaus.activity.PendaftaranActivity
 import com.badrun.my259firdaus.activity.PerpustakaanActivity
 import com.badrun.my259firdaus.activity.ProfilPesantrenActivity
 import com.badrun.my259firdaus.activity.ScanTestActivity
+import com.badrun.my259firdaus.activity.TentangKamiActivity
+import com.badrun.my259firdaus.activity.daring.DaringGuruActivity
+import com.badrun.my259firdaus.activity.daring.DaringSantriActivity
 import com.badrun.my259firdaus.adapter.AdapterNews
 import com.badrun.my259firdaus.adapter.AdapterNewsSearch
 import com.badrun.my259firdaus.adapter.AdapterSlider
@@ -44,6 +55,7 @@ import com.badrun.my259firdaus.database.NewsEntity
 import com.badrun.my259firdaus.database.NewsViewModel
 import com.badrun.my259firdaus.database.NewsViewModelFactory
 import com.badrun.my259firdaus.database.NotifDatabase
+import com.badrun.my259firdaus.databinding.LayoutBottomMenuBinding
 import com.badrun.my259firdaus.helper.DialogUtils
 import com.badrun.my259firdaus.helper.NotificationRepository
 import com.badrun.my259firdaus.helper.NotificationViewModel
@@ -52,13 +64,19 @@ import com.badrun.my259firdaus.helper.SharedPref
 import com.badrun.my259firdaus.helper.SharedSholat
 import com.badrun.my259firdaus.helper.SharedSlide
 import com.badrun.my259firdaus.model.JadwalSholat
+import com.badrun.my259firdaus.model.ResponseCheck
 import com.badrun.my259firdaus.model.ResponseJadwalSholat
 import com.badrun.my259firdaus.model.ResponseSlide
+import com.badrun.my259firdaus.model.User
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.search.SearchBar
 import com.google.android.material.search.SearchView
+import com.google.android.material.tabs.TabLayout
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.apache.commons.lang3.ObjectUtils.Null
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -84,11 +102,13 @@ class HomeFragment : Fragment() {
     private var dataKecamatan : String? = null
     private var dataKota : String? = null
     private lateinit var btnFormulir : CardView
-    private lateinit var btnTransaksi : CardView
+    private lateinit var btnMoreMenu : CardView
     private lateinit var btnPerpus : CardView
     private lateinit var btnProfil : CardView
     private lateinit var textBtn4 : TextView
     private lateinit var imgBtn4 : ImageView
+
+    private var isClockRunning = false
 
     private lateinit var vpSlider : ViewPager
     private lateinit var rvNews : RecyclerView
@@ -136,6 +156,8 @@ class HomeFragment : Fragment() {
     private val searchHandler = Handler(Looper.getMainLooper())
     private var searchRunnable: Runnable? = null
 
+    private var bottomSheetDialog: BottomSheetDialog? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val database = NotifDatabase.getDatabase(requireContext())
@@ -150,6 +172,7 @@ class HomeFragment : Fragment() {
         dataLokasi = arguments?.getString("KEY_DATA_STRING", "")
         dataKecamatan = arguments?.getString("KEY_SUB_LOCALITY")
         dataKota = arguments?.getString("KEY_LOCALITY")
+        sp = SharedPref(requireActivity())
 
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         rvNews = view.findViewById(R.id.rv_news)
@@ -174,7 +197,7 @@ class HomeFragment : Fragment() {
         s = SharedSholat(requireContext())
         sl = SharedSlide(requireActivity())
         btnFormulir = view.findViewById(R.id.btn_psbsatu)
-        btnTransaksi = view.findViewById(R.id.btn_psbempat)
+        btnMoreMenu = view.findViewById(R.id.btn_psbempat)
         btnProfil = view.findViewById(R.id.btn_psbdua)
         textBtn4 = view.findViewById(R.id.text_btnIcon4)
         imgBtn4 = view.findViewById(R.id.img_btnIcon4)
@@ -188,14 +211,12 @@ class HomeFragment : Fragment() {
 
         initIconMenu()
 
-        btnFormulir.setOnClickListener {
-            val i = Intent(requireContext(),PendaftaranActivity::class.java)
-            startActivity(i)
-        }
-
-        btnProfil.setOnClickListener {
-            val i = Intent(requireContext(), ExamActivity::class.java)
-            startActivity(i)
+        val tamu = sp.getTamu()
+        val user = sp.getUser()
+        if (user != null && user.role != 2) {
+            if (user.kelas.isNullOrEmpty() && (tamu == null || tamu.kelas.isNullOrEmpty())) {
+                showSelectClassDialog(user)
+            }
         }
 
         imgNotif.setOnClickListener {
@@ -358,30 +379,185 @@ class HomeFragment : Fragment() {
     }
 
     private fun initIconMenu(){
-        sp = SharedPref(requireActivity())
-        val user = sp.getUser()
 
-        when(user!!.role){
-            2 ->{
-                textBtn4.text = getString(R.string.testing)
-                imgBtn4.setImageResource(R.drawable.icon_test)
-                btnTransaksi.setOnClickListener {
-                    val i = Intent(requireContext(),ScanTestActivity::class.java)
-                    startActivity(i)
-                }
-            }
-            else ->{
-                btnTransaksi.setOnClickListener {
-                    val i = Intent(requireContext(),PembayaranDetailActivity::class.java)
-                    startActivity(i)
-                }
-            }
+        btnMoreMenu.setOnClickListener {
+            btnMoreMenu.isEnabled = false  // Nonaktifkan tombol sementara
+            showBottomMenu()
+            btnMoreMenu.postDelayed({ btnMoreMenu.isEnabled = true }, 500) // Aktifkan kembali setelah 500ms
         }
 
         btnPerpus.setOnClickListener {
             val i = Intent(requireContext(),PerpustakaanActivity::class.java)
             startActivity(i)
         }
+
+        btnFormulir.setOnClickListener {
+            val i = Intent(requireContext(),PendaftaranActivity::class.java)
+            startActivity(i)
+        }
+
+        btnProfil.setOnClickListener {
+            val i = Intent(requireContext(), ProfilPesantrenActivity::class.java)
+            startActivity(i)
+        }
+    }
+
+    private fun showBottomMenu() {
+
+        if (bottomSheetDialog?.isShowing == true) return
+
+        bottomSheetDialog = BottomSheetDialog(requireContext())
+
+        val binding = LayoutBottomMenuBinding.inflate(layoutInflater)
+        val user = sp.getUser()
+
+        with(binding) {
+            btnExamMts.setOnClickListener {
+                startActivity(Intent(requireContext(), ExamActivity::class.java))
+                bottomSheetDialog?.dismiss()
+            }
+
+            btnSupportPengembang.setOnClickListener {
+                startActivity(Intent(requireContext(), IklanActivity::class.java))
+                bottomSheetDialog?.dismiss()
+            }
+
+            btnTransaksiCard.setOnClickListener {
+                startActivity(Intent(requireContext(), PembayaranDetailActivity::class.java))
+                bottomSheetDialog?.dismiss()
+            }
+
+            btnJadwalPelajaran.setOnClickListener { showCustomDialog() }
+            btnLaporanAkademik.setOnClickListener { showCustomDialog() }
+            btnBiayaAkademik.setOnClickListener { showCustomDialog() }
+            btnQuizPesantren.setOnClickListener { showCustomDialog() }
+            btnStreamLensa.setOnClickListener { showCustomDialog() }
+            btnRuangAlumni.setOnClickListener { showCustomDialog() }
+
+            btnTentangPengembang.setOnClickListener {
+                startActivity(Intent(requireContext(), TentangKamiActivity::class.java))
+                bottomSheetDialog?.dismiss()
+            }
+
+            if (user!!.role == 2) {
+                cardDaring.visibility = View.VISIBLE
+                cardTestPpdb.visibility = View.VISIBLE
+                cardLapAkademik.visibility = View.GONE
+                btnTestPpdb.setOnClickListener {
+                    startActivity(Intent(requireContext(), ScanTestActivity::class.java))
+                    bottomSheetDialog?.dismiss()
+                }
+                btnDaringAkademik.setOnClickListener{
+                    startActivity(Intent(requireContext(), DaringGuruActivity::class.java))
+                    bottomSheetDialog?.dismiss()
+                }
+            } else {
+                val tamu = sp.getTamu()
+                if (user.kelas != null || tamu!!.kelas != null){
+                    cardDaring.visibility = View.VISIBLE
+                    btnDaringAkademik.setOnClickListener{
+                        startActivity(Intent(requireContext(), DaringSantriActivity::class.java))
+                        bottomSheetDialog?.dismiss()
+                    }
+                }
+                cardTestPpdb.visibility = View.GONE
+                cardLapAkademik.visibility = View.VISIBLE
+            }
+        }
+
+        bottomSheetDialog?.setContentView(binding.root)
+        bottomSheetDialog?.show()
+    }
+
+    private fun showSelectClassDialog(user: User) {
+        val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_update_user, null)
+        val edtNama = dialogView.findViewById<EditText>(R.id.edtNamaLengkap)
+        val spinnerKelas = dialogView.findViewById<Spinner>(R.id.spinnerKelas)
+
+        val kelasList = listOf("7A", "7B", "7C", "8A", "8B", "9A", "9B", "9C")
+        val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, kelasList)
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerKelas.adapter = spinnerAdapter
+
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle("Lengkapi Data")
+            .setView(dialogView)
+            .setCancelable(false)
+            .setPositiveButton("Simpan", null)
+            .create()
+
+        dialog.setOnShowListener {
+            val button = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            button.setOnClickListener {
+                val namaLengkap = edtNama.text.toString().trim()
+                val kelas = spinnerKelas.selectedItem.toString()
+
+                if (namaLengkap.isEmpty()) {
+                    edtNama.error = "Nama tidak boleh kosong"
+                    return@setOnClickListener
+                }
+
+                // Simpan ke SharedPref
+                user.nama = namaLengkap
+                user.kelas = kelas
+                sp.setUser(user)
+
+                // Kirim ke API
+                val userData = mapOf(
+                    "name" to namaLengkap,
+                    "email" to user.email,
+                    "role" to user.role.toString(),
+                    "kelas" to kelas
+                )
+
+                updateUser(user.user_id, userData)
+                Toast.makeText(requireContext(), "Data berhasil diperbarui", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
+    }
+
+
+    private fun updateUser(userId: Int, userData: Map<String, String>) {
+        // Panggil API menggunakan Retrofit
+        ApiConfig.create(requireContext()).updateUser(userId, userData).enqueue(object : Callback<ResponseCheck> {
+            override fun onResponse(call: Call<ResponseCheck>, response: Response<ResponseCheck>) {
+                if (response.isSuccessful) {
+                    val res = response.body()
+                    Toast.makeText(context, "Berhasil update data", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Gagal update buka ulang aplikasi", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseCheck>, t: Throwable) {
+                Toast.makeText(context, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+    }
+
+
+    private fun showCustomDialog() {
+        // Inflate the custom layout
+        val inflater = LayoutInflater.from(requireContext())
+        val dialogView: View = inflater.inflate(R.layout.dialog_fitur, null)
+
+        // Create the dialog builder
+        val dialogBuilder = android.app.AlertDialog.Builder(requireContext())
+        dialogBuilder.setView(dialogView)
+
+        val dialogMessage = dialogView.findViewById<TextView>(R.id.dialogMessage)
+        val dialogButton = dialogView.findViewById<Button>(R.id.dialogButtonError)
+
+        val alertDialog = dialogBuilder.create()
+        dialogButton.setOnClickListener {
+            // Dismiss the dialog
+            alertDialog.dismiss()
+        }
+        alertDialog.show()
     }
 
 
@@ -452,9 +628,11 @@ class HomeFragment : Fragment() {
     private fun getSlide(){
         ApiConfig.create(requireContext()).getSlide().enqueue(object : Callback<ResponseSlide>{
             override fun onResponse(call: Call<ResponseSlide>, response: Response<ResponseSlide>) {
-                if (response.isSuccessful){
-                    val res = response.body()!!
-                    if (res.code == 1){
+                if (!isAdded) return
+
+                if (response.isSuccessful) {
+                    val res = response.body()
+                    if (res != null && res.code == 1) {
                         val slide = res.slide
                         sl.deleteSharedSlide()
                         sl.setSlide(slide)
@@ -473,9 +651,8 @@ class HomeFragment : Fragment() {
 
 
     private fun displaySlide(){
-        val data = sl.getSlide()
         arrSlide.clear()
-        arrSlide.add(data!!.image1)
+        val data = sl.getSlide() ?: return
         arrSlide.add(data.image2)
         arrSlide.add(data.image3)
 
@@ -505,7 +682,7 @@ class HomeFragment : Fragment() {
                 response: Response<ResponseJadwalSholat>
             ) {
                 if (response.isSuccessful){
-                    val res = response.body()!!
+                    val res = response.body() ?: return
                     if (res.code == 200){
                         val jadwalSho = res.data!![hari-1]
                         s.deleteShared()
@@ -515,22 +692,40 @@ class HomeFragment : Fragment() {
                     }
                 } else {
                     val data = s.getJadwal()
-                    displayJadwalSholat(data!!)
+                    if (data != null) {
+                        displayJadwalSholat(data)
+                    } else {
+                        tampilkanJadwalKosong()
+                    }
                 }
+
             }
 
             @SuppressLint("SetTextI18n")
             override fun onFailure(call: Call<ResponseJadwalSholat>, t: Throwable) {
                 kalenderH.text = "...., 00 .... ....."
                 val data = s.getJadwal()
-                displayJadwalSholat(data!!)
-                if (isAdded) return DialogUtils.showServerConnectionFailedDialog(requireActivity())
+                if (data != null) {
+                    displayJadwalSholat(data)
+                } else {
+                    tampilkanJadwalKosong()
+                }
+
+                if (isAdded) {
+                    DialogUtils.showServerConnectionFailedDialog(requireActivity())
+                }
             }
+
 
         })
     }
 
-    private fun displayJadwalSholat (jadwalSho : JadwalSholat){
+    private fun displayJadwalSholat(jadwalSho: JadwalSholat?) {
+        if (jadwalSho == null || jadwalSho.timings == null) {
+            tampilkanJadwalKosong()
+            return
+        }
+
         val kalender = Calendar.getInstance()
         val dayOfWeek = kalender.get(Calendar.DAY_OF_WEEK)
 
@@ -545,47 +740,93 @@ class HomeFragment : Fragment() {
             else -> ""
         }
 
-        val waktu = jadwalSho.timings
+        val waktu = jadwalSho.timings!!
 
-        imsak.text = waktu.Imsak.substring(0,5)
-        shubuh.text = waktu.Fajr.substring(0,5)
-        dzhur.text = waktu.Dhuhr.substring(0,5)
-        ashar.text = waktu.Asr.substring(0,5)
-        maghrib.text = waktu.Maghrib.substring(0,5)
-        isya.text = waktu.Isha.substring(0,5)
+        fun potong5(str: String?): String {
+            return if (!str.isNullOrBlank() && str.length >= 5) {
+                str.substring(0, 5)
+            } else {
+                "--:--"
+            }
+        }
 
+        imsak.text   = potong5(waktu.Imsak)
+        shubuh.text  = potong5(waktu.Fajr)
+        dzhur.text   = potong5(waktu.Dhuhr)
+        ashar.text   = potong5(waktu.Asr)
+        maghrib.text = potong5(waktu.Maghrib)
+        isya.text    = potong5(waktu.Isha)
 
-        val kalen = jadwalSho.date.hijri
-        val mount = kalen.month.en
-        val year = kalen.year
-        val day = kalen.day
+        val kalen = jadwalSho.date?.hijri
+        val mount = kalen?.month?.en ?: "-"
+        val year  = kalen?.year ?: "-"
+        val day   = kalen?.day ?: "-"
 
         val dateFormat = SimpleDateFormat("d MMMM yyyy", Locale("id", "ID"))
         val currentDate = dateFormat.format(kalender.time)
 
         val cleanedKecamatan = dataKecamatan?.replace("Kecamatan ", "Kec. ") ?: ""
         lokasi.text = "$cleanedKecamatan ,\n$dataKota"
-        kalenderM.text = "$dayName, $currentDate"
+        kalenderM.text = "$dayName, \n$currentDate"
         kalenderH.text = "$day $mount $year H"
-
     }
 
+
+    @SuppressLint("SetTextI18n")
+    private fun tampilkanJadwalKosong() {
+        imsak.text = "--:--"
+        shubuh.text = "--:--"
+        dzhur.text = "--:--"
+        ashar.text = "--:--"
+        maghrib.text = "--:--"
+        isya.text = "--:--"
+
+        val kalender = Calendar.getInstance()
+        val dayOfWeek = kalender.get(Calendar.DAY_OF_WEEK)
+
+        val dayName = when (dayOfWeek) {
+            Calendar.SUNDAY -> "Minggu"
+            Calendar.MONDAY -> "Senin"
+            Calendar.TUESDAY -> "Selasa"
+            Calendar.WEDNESDAY -> "Rabu"
+            Calendar.THURSDAY -> "Kamis"
+            Calendar.FRIDAY -> "Jumat"
+            Calendar.SATURDAY -> "Sabtu"
+            else -> ""
+        }
+
+        val dateFormat = SimpleDateFormat("d MMMM yyyy", Locale("id", "ID"))
+        val currentDate = dateFormat.format(kalender.time)
+
+        kalenderM.text = "$dayName,\n$currentDate"
+        kalenderH.text = "...., 00 .... ....."
+    }
+
+
     private fun startClock() {
+        if (isClockRunning) return
+
         runnable = object : Runnable {
             override fun run() {
                 val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
                 sdf.timeZone = TimeZone.getTimeZone("Asia/Jakarta")
-                val currentTime = sdf.format(System.currentTimeMillis())
-                time.text = currentTime
-                handler.postDelayed(this, 1000) // Update per second
+                time.text = sdf.format(System.currentTimeMillis())
+                handler.postDelayed(this, 1000)
             }
         }
+
+        isClockRunning = true
         handler.post(runnable)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         handler.removeCallbacksAndMessages(null)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        searchRunnable?.let { searchHandler.removeCallbacks(it) }
     }
 
     override fun onResume() {
@@ -597,6 +838,7 @@ class HomeFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         handler.removeCallbacks(runnable)
+        isClockRunning = false
     }
 
 }

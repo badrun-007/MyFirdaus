@@ -23,7 +23,6 @@ import com.badrun.my259firdaus.api.ApiConfig
 import com.badrun.my259firdaus.helper.SharedPref
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -108,7 +107,6 @@ class AkunFragment : Fragment() {
             .setMessage("Apakah Anda yakin ingin Logout?")
             .setPositiveButton("Ya") { _: DialogInterface, _: Int ->
                 // Tutup aplikasi jika pengguna mengonfirmasi
-                FirebaseAuth.getInstance().signOut()
                 s.setStatusLogin(false)
                 s.deleteShared()
                 val intent = Intent(requireContext(), LoginActivity::class.java)

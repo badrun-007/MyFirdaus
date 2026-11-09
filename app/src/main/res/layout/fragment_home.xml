@@ -459,6 +459,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             app:cardCornerRadius="15dp"
+                            android:foreground="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
                             android:onClick="onButtonClick">
@@ -500,6 +501,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             app:cardCornerRadius="15dp"
+                            android:foreground="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
                             android:onClick="onButtonClick">
@@ -508,7 +510,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/icon_exam"/>
+                                android:src="@drawable/icon_profilpesantren"/>
                         </androidx.cardview.widget.CardView>
 
                         <TextView
@@ -520,7 +522,7 @@
                             android:singleLine="false"
                             android:maxLines="2"
                             android:fontFamily="@font/poppinsregular"
-                            android:text="Ujian \nSekolah"/>
+                            android:text="Profil \nPesantren"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -540,6 +542,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             app:cardCornerRadius="15dp"
+                            android:foreground="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
                             android:onClick="onButtonClick">
@@ -580,6 +583,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             app:cardCornerRadius="15dp"
+                            android:foreground="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
                             android:onClick="onButtonClick">
@@ -589,7 +593,7 @@
                                 android:layout_gravity="center"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="@drawable/icon_history"/>
+                                android:src="@drawable/icon_more_menu"/>
                         </androidx.cardview.widget.CardView>
 
                         <TextView
@@ -602,7 +606,7 @@
                             android:singleLine="false"
                             android:maxLines="2"
                             android:fontFamily="@font/poppinsregular"
-                            android:text="Transaksi \n"/>
+                            android:text="Menu \nLainnya"/>
                     </LinearLayout>
                 </LinearLayout>
 

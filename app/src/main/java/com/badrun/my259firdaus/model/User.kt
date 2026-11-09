@@ -6,7 +6,8 @@ data class User(
     val email : String,
     val user_id : Int,
     val image : String,
-    val nama : String,
+    var nama : String,
     val gender : String,
-    val perpustakaan : String
+    val perpustakaan : String,
+    var kelas : String?
 )

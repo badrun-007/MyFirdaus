@@ -1,0 +1,22 @@
+
+µ
+
+;
+android*http://schemas.android.com/apk/res/android*LinearLayout"K
+*http://schemas.android.com/apk/res/androidpadding24dp"(Õ„2:h0"R
+*http://schemas.android.com/apk/res/androidorientationvertical"(Ä„2:0"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ*æ
+İEditText"E
+*http://schemas.android.com/apk/res/androidhintNama Lengkap(Ğ‚„"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"V
+*http://schemas.android.com/apk/res/android	inputTypetextPersonName"( „„2:8a"m
+*http://schemas.android.com/apk/res/androidid@+id/edtNamaLengkap"(Ğ„2
+Ñ‚¨øid/edtNamaLengkap0/*˜
+Spinner"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"T
+*http://schemas.android.com/apk/res/androidlayout_marginTop16dp"(ø„2:h "i
+*http://schemas.android.com/apk/res/androidid@+id/spinnerKelas"(Ğ„2
+ı†¨øid/spinnerKelas0**
